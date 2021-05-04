@@ -1,0 +1,15 @@
+ -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda
+ --prefix=/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc CC=gcc CXX=g++
+ -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda
+ --prefix=/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc CC=gcc CXX=g++
+ -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda
+ --fullhelp
+ -arch=arm_linux -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda
+ -bfd=download -unwind=download -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+ -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/

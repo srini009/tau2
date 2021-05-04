@@ -1,0 +1,25 @@
+Jobid: 10016225
+qsub -q full-node -n 1 -t 01:00:00 -I -A AP4GPU --attrs=pubnet
+Tue Apr 27 07:23:12 2021 +0000 (UTC) submitted with cwd set to: /gpfs/mira-home/sramesh/AUTOPERF/tau2
+jobid 10016225 submitted from terminal /dev/pts/0
+Tue Apr 27 07:23:29 2021 +0000 (UTC) 
+Tue Apr 27 07:23:29 2021 +0000 (UTC) Command: '/usr/bin/ssh' 'thetagpu21' '/usr/bin/cobalt-launcher.py' '--nf' '/var/tmp/cobalt.10016225' '--jobid' '10016225' '--cwd' '/gpfs/mira-home/sramesh/AUTOPERF/tau2' '--env' 'COBALT_JOBID=10016225' '/bin/sleep' '3600'
+Tue Apr 27 07:23:29 2021 +0000 (UTC) 
+Tue Apr 27 07:23:29 2021 +0000 (UTC) Environment:
+Tue Apr 27 07:23:29 2021 +0000 (UTC) SHELL=/bin/bash
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_NODEFILE=/tmp/tmpa7n92g
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_PARTNAME=thetagpu21
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_JOBID=10016225
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_STARTTIME=1619508200
+Tue Apr 27 07:23:29 2021 +0000 (UTC) LOGNAME=sramesh
+Tue Apr 27 07:23:29 2021 +0000 (UTC) USER=sramesh
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_ENDTIME=1619511800
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_PARTSIZE=1
+Tue Apr 27 07:23:29 2021 +0000 (UTC) HOME=/home/sramesh
+Tue Apr 27 07:23:29 2021 +0000 (UTC) COBALT_JOBSIZE=1
+Tue Apr 27 07:23:29 2021 +0000 (UTC) 
+Tue Apr 27 07:23:29 2021 +0000 (UTC) Info: stdin received from /dev/null
+Tue Apr 27 07:23:29 2021 +0000 (UTC) Info: stdout sent to /gpfs/mira-home/sramesh/AUTOPERF/tau2/10016225.output
+Tue Apr 27 07:23:29 2021 +0000 (UTC) Info: stderr sent to /gpfs/mira-home/sramesh/AUTOPERF/tau2/10016225.error
+Tue Apr 27 07:23:29 2021 +0000 (UTC) 
+Tue Apr 27 07:34:47 2021 +0000 (UTC) Info: user delete requested with signal SIGTERM by user sramesh

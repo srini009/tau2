@@ -1,0 +1,1253 @@
+ACLOCAL_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/share/aclocal:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/share/aclocal
+BASH=/bin/bash
+BASHOPTS=cmdhist:complete_fullquote:extquote:force_fignore:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=([0]="4")
+BASH_ARGV=([0]="-cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/" [1]="-prefix=/home/sramesh/AUTOPERF/TAU_INSTALL" [2]="-pthread" [3]="-mpi")
+BASH_CMDS=()
+BASH_ENV=/usr/local/lmod/lmod/init/bash
+BASH_LINENO=([0]="0")
+BASH_SOURCE=([0]="./configure")
+BASH_VERSINFO=([0]="4" [1]="4" [2]="20" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='4.4.20(1)-release'
+CC=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin/nvc
+CMAKE_PREFIX_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb
+COBALT_JOBID=10016213
+COBALT_NODEFILE=/var/tmp/cobalt.10016213
+CPATH=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nvshmem/include:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nccl/include:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/math_libs/include:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/include
+CPLUS_INCLUDE_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/include
+CPP=cpp
+CRAYPE_LINK_TYPE=dynamic
+CUDA_DIR=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda
+CUDA_HOME=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu
+CXX=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin/nvc++
+C_INCLUDE_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/include
+DIRSTACK=()
+EUID=33567
+F77=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin/nvfortran
+F90=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin/nvfortran
+FC=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin/nvfortran
+FPATH=/usr/local/lmod/lmod/init/ksh_funcs
+GROUPS=()
+HOME=/home/sramesh
+HOSTNAME=thetagpu21
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+INCLUDE=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/include:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/include
+LANG=en_US.UTF-8
+LD_LIBRARY_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/lib64:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/lib:/home/sramesh/AUTOPERF/LAMMPS/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nvshmem/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nccl/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/math_libs/lib64:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/lib64:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/lib:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/lib
+LIBRARY_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/lib64:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/lib
+LMOD_CMD=/usr/local/lmod/lmod/libexec/lmod
+LMOD_DIR=/usr/local/lmod/lmod/libexec
+LMOD_PKG=/usr/local/lmod/lmod
+LMOD_ROOT=/usr/local/lmod
+LMOD_SETTARG_FULL_SUPPORT=no
+LMOD_SYSTEM_DEFAULT_MODULES=Core/StdEnv
+LMOD_VERSION=8.4.20
+LMOD_sys=Linux
+LOADEDMODULES=openmpi/openmpi-4.0.5:Core/StdEnv:nvhpc/20.9
+LOGNAME=sramesh
+MACHTYPE=x86_64-pc-linux-gnu
+MAIL=/var/mail/sramesh
+MANPATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/share/man:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/share/man:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/man:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/share/man:/usr/local/lmod/lmod/share/man::
+MODULEPATH=/gpfs/mira-home/sramesh/spack/share/spack/modules/linux-ubuntu18.04-zen:/gpfs/mira-home/sramesh/spack/share/spack/modules/linux-ubuntu18.04-zen2:/usr/local/lmod/lmod/modulefiles:/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles:/lus/theta-fs0/software/spack/share/spack/modules/linux-ubuntu18.04-x86_64
+MODULEPATH_ROOT=/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles
+MODULESHOME=/usr/local/lmod/lmod
+NVHPC=/lus/theta-fs0/software/thetagpu/hpc-sdk
+OLDPWD=/home/sramesh/AUTOPERF
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/bin:/home/sramesh/AUTOPERF/LAMMPS/bin:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/bin:/home/sramesh/spack/bin:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/include:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/bin:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/include:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/bin:/usr/local/cuda/bin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sramesh/bin
+PIPESTATUS=([0]="0")
+PKG_CONFIG_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/lib/pkgconfig:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib/pkgconfig:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/lib/pkgconfig:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/lib/pkgconfig:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib/pkgconfig:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/lib/pkgconfig
+PPID=245618
+PS4='+ '
+PWD=/home/sramesh/AUTOPERF/tau2
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments
+SHLVL=2
+SPACK_LD_LIBRARY_PATH=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/lib64:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/zlib-1.2.11-wnoop42y4gbc6mzq6igbyygpbeqsifjm/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/lib:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/lib:/home/sramesh/AUTOPERF/LAMMPS/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nvshmem/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nccl/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/math_libs/lib64:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/lib:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/lib64:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/lib:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/lib
+SPACK_LOADED_HASHES=r6ac5vpty7t2ime4z7udkjiyviw2umor:wnoop42y4gbc6mzq6igbyygpbeqsifjm:yd2qg2k6r3kfwuik5gnppcmxkoi2brvc:4jajaxab6hhhcpge3hl27rhj3cpkwmwb:eiddc5626vlk3ujkac6j7bsoxazl4fvx:ncfo5pmqj24e3m6mgwyq6ejdroay2hft:kyr4zwi3w2avbqmosro6y7rdv2lg5yyu:vzoz5mlhquriztsoqbtpr5fo2mcwot4g:wnoop42y4gbc6mzq6igbyygpbeqsifjm:q6fjdpg2djewh436ssdahbrsubkl4czx:4jajaxab6hhhcpge3hl27rhj3cpkwmwb
+SPACK_ROOT=/home/sramesh/spack
+SSH_CLIENT='10.230.2.45 53946 22'
+SSH_CONNECTION='10.230.2.45 53946 10.230.2.209 22'
+SSH_TTY=/dev/pts/0
+START_DIR=/home/sramesh/AUTOPERF/tau2
+S_COLORS=auto
+TERM=xterm
+UID=33567
+USER=sramesh
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+XDG_RUNTIME_DIR=/run/user/33567
+XDG_SESSION_ID=2135
+_=
+_LMFILES_=/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles/openmpi/openmpi-4.0.5.lua:/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles/Core/StdEnv.lua:/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles/nvhpc/20.9
+_ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtDb3JlPXtbImZuIl09Ii9sdXMvdGhldGEtZnMwL3NvZnR3YXJlL2Vudmlyb25tZW50L3RoZXRhZ3B1L2xtb2QvbW9kdWxlZmlsZXMvQ29yZS9TdGRFbnYubHVhIixbImZ1bGxOYW1lIl09IkNvcmUvU3RkRW52IixbImxvYWRPcmRlciJdPTIscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iQ29yZS9TdGRFbnYiLFsid1YiXT0iKnN0ZGVudi4qemZpbmFsIix9LG52aHBjPXtbImZuIl09Ii9sdXMvdGhldGEtZnMwL3NvZnR3YXJlL2Vudmlyb25t
+_ModuleTable002_=ZW50L3RoZXRhZ3B1L2xtb2QvbW9kdWxlZmlsZXMvbnZocGMvMjAuOSIsWyJmdWxsTmFtZSJdPSJudmhwYy8yMC45IixbImxvYWRPcmRlciJdPTMscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0ibnZocGMiLFsid1YiXT0iXjAwMDAwMDIwLjAwMDAwMDAwOS4qemZpbmFsIix9LG9wZW5tcGk9e1siZm4iXT0iL2x1cy90aGV0YS1mczAvc29mdHdhcmUvZW52aXJvbm1lbnQvdGhldGFncHUvbG1vZC9tb2R1bGVmaWxlcy9vcGVubXBpL29wZW5tcGktNC4wLjUubHVhIixbImZ1bGxOYW1lIl09Im9wZW5tcGkvb3Blbm1waS00LjAuNSIsWyJsb2FkT3JkZXIiXT0xLHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMi
+_ModuleTable003_=XT0iYWN0aXZlIixbInVzZXJOYW1lIl09Im9wZW5tcGkvb3Blbm1waS00LjAuNSIsWyJ3ViJdPSIqb3Blbm1waS4qemZpbmFsLS4wMDAwMDAwMDQuMDAwMDAwMDAwLjAwMDAwMDAwNS4qemZpbmFsIix9LH0sbXBhdGhBPXsiL2dwZnMvbWlyYS1ob21lL3NyYW1lc2gvc3BhY2svc2hhcmUvc3BhY2svbW9kdWxlcy9saW51eC11YnVudHUxOC4wNC16ZW4iLCIvZ3Bmcy9taXJhLWhvbWUvc3JhbWVzaC9zcGFjay9zaGFyZS9zcGFjay9tb2R1bGVzL2xpbnV4LXVidW50dTE4LjA0LXplbjIiLCIvdXNyL2xvY2FsL2xtb2QvbG1vZC9tb2R1bGVmaWxlcyIsIi9sdXMvdGhldGEtZnMwL3NvZnR3YXJlL2Vudmlyb25tZW50L3RoZXRhZ3B1L2xtb2QvbW9kdWxlZmlsZXMiLCIvbHVzL3RoZXRh
+_ModuleTable004_=LWZzMC9zb2Z0d2FyZS9zcGFjay9zaGFyZS9zcGFjay9tb2R1bGVzL2xpbnV4LXVidW50dTE4LjA0LXg4Nl82NCIsfSxbInN5c3RlbUJhc2VNUEFUSCJdPSIvdXNyL2xvY2FsL2xtb2QvbG1vZC9tb2R1bGVmaWxlczovbHVzL3RoZXRhLWZzMC9zb2Z0d2FyZS9lbnZpcm9ubWVudC90aGV0YWdwdS9sbW9kL21vZHVsZWZpbGVzOi9sdXMvdGhldGEtZnMwL3NvZnR3YXJlL3NwYWNrL3NoYXJlL3NwYWNrL21vZHVsZXMvbGludXgtdWJ1bnR1MTguMDQteDg2XzY0Iix9
+_ModuleTable_Sz_=4
+__Init_Default_Modules=1
+__LMOD_REF_COUNT_CPATH='/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nvshmem/include:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nccl/include:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/math_libs/include:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/include:1'
+__LMOD_REF_COUNT_LD_LIBRARY_PATH='/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nvshmem/lib:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/comm_libs/nccl/lib:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/math_libs/lib64:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/lib:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/lib64:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/lib:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/lib:1'
+__LMOD_REF_COUNT_LOADEDMODULES='openmpi/openmpi-4.0.5:1;Core/StdEnv:1;nvhpc/20.9:1'
+__LMOD_REF_COUNT_MANPATH='/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/man:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/share/man:1;/usr/local/lmod/lmod/share/man:1'
+__LMOD_REF_COUNT_MODULEPATH='/gpfs/mira-home/sramesh/spack/share/spack/modules/linux-ubuntu18.04-zen:1;/gpfs/mira-home/sramesh/spack/share/spack/modules/linux-ubuntu18.04-zen2:1;/usr/local/lmod/lmod/modulefiles:1;/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles:1;/lus/theta-fs0/software/spack/share/spack/modules/linux-ubuntu18.04-x86_64:1'
+__LMOD_REF_COUNT_PATH='/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin:1;/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/bin:1;/home/sramesh/spack/bin:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/include:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/bin:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/include:1;/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/bin:1;/usr/local/cuda/bin:1;/opt/bin:1;/usr/local/sbin:1;/usr/local/bin:1;/usr/sbin:1;/usr/bin:1;/sbin:1;/bin:1;/usr/games:1;/usr/local/games:1;/snap/bin:1;/home/sramesh/bin:1'
+__LMOD_REF_COUNT__LMFILES_='/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles/openmpi/openmpi-4.0.5.lua:1;/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles/Core/StdEnv.lua:1;/lus/theta-fs0/software/environment/thetagpu/lmod/modulefiles/nvhpc/20.9:1'
+__LMOD_SET_FPATH=1
+_tauroot=.
+additional_mpiincs=
+additional_mpilibs=
+adios=no
+adios2=no
+adios2dir=
+adiosdir=
+all_args='-mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/'
+alphatimers=no
+android_platform=19
+android_version=4.4
+apex=no
+arg=-cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/
+argsum=4dc79288636e527592de3fef40f74ee7
+armci=no
+asmdex=download
+beacon=no
+beacondir=/
+bfd=no
+bfddir=
+bgltimers=no
+bgptimers=no
+bgqtimers=no
+boost=no
+c_compiler=default
+callpath=no
+catamount=no
+charm=no
+comm=yes
+compaq=no
+compensate=no
+confenvdir=/home/sramesh/AUTOPERF/tau2/.configure_env
+confenvfile=/home/sramesh/AUTOPERF/tau2/.configure_env/4dc79288636e527592de3fef40f74ee7
+cputime=no
+craymic=no
+craytimers=no
+cubedir=own
+cuda=yes
+cudainclude=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0//include
+cupti=no
+cwd=/home/sramesh/AUTOPERF/tau2
+cxx_compiler=default
+darshan=no
+debugprof=no
+default=false
+depthlimit=no
+disable_memory_manager=no
+disableshared=no
+dmapp=no
+download_likwid=no
+download_ompt=no
+download_ompt_5_0=no
+download_ompt_tr4=no
+download_ompt_tr6=no
+download_otf=no
+download_scorep=no
+download_sos=no
+download_unwind=no
+dwarf=no
+dyninst=no
+dyninstinc=no
+dyninstlib=no
+ebs2otf=no
+ebs_clock_res=-1
+ebs_has_rt=no
+echo='echo -n'
+elf=no
+elfdir=
+enable_export_dynamic=no
+epilog=no
+epilogbin=no
+epilogbindir=bin
+epilogdir=no
+epilogextralinkcmd=
+epiloginc=no
+epilogincdir=
+epiloglib=no
+epiloglibdir=no
+execprefix=unknown
+extra_linker_args=
+extradir=
+extrashlibopts=
+fixmakeargs=' tauprefix=/home/sramesh/AUTOPERF/TAU_INSTALL'
+forceshared=no
+fortran_compiler=no
+fujitsu=no
+fx_aarch64=no
+gnu=no
+gpi=no
+gpidir=
+gpiinc=
+gpilib=
+gpilibrary=no
+gpshmem=no
+guidef90=no
+gupc=no
+hip=no
+host=
+host_prefix=
+host_sysroot=
+hpctoolkit=no
+hpctoolkit_install_dir=
+hpctoolkit_src_dir=
+http_proxy=http://proxy.tmi.alcf.anl.gov:3128
+ibmmpi=no
+ibmxlc=no
+ibmxlc_r=no
+install_ompt=no
+install_sos=no
+intel=no
+intelcxxlibicc=no
+intelifort=no
+iowrapper=no
+java=no
+kai=no
+ktau=no
+ktau_merge=no
+ktau_ng=no
+ktau_shctr=no
+ktauinc=
+ktauincuser=
+ktaulib=
+ktausym=
+level_zero=no
+likwid=no
+linuxtimers=no
+llvm=no
+md5sum=/usr/bin/md5sum
+mochi=no
+mochi_sdskv_dir=
+modarg=-cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/
+modargs=' -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/'
+modmodargs=' -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/11.0/'
+mon_mpi=no
+mpc=no
+mpi=yes
+mpi2=no
+mpiinc=
+mpiio=no
+mpilib=
+mpilibargs_added_to_fixmakeargs=no
+mpilibrary=no
+mpit=no
+mpitrace=no
+mpiwarnings=
+mrnet=no
+mrnet_lib=
+mrnet_root=
+mrnet_use_lightweight=no
+nnl=
+noex=no
+ompt=no
+ompt_compiler_support=no
+ompt_header=omp-tools.h
+ompt_use_tr4_version=no
+ompt_use_tr6_version=no
+ompt_use_tr7_version=no
+ompt_use_v5_version=no
+ompt_version_selected=no
+omptenabled=no
+omptlib=
+omptlibrary=-lomp
+opari=no
+opari1=no
+opari_construct=no
+opari_region=no
+oparicomp=no
+open64=no
+openacc_opt=
+openmp=no
+orig_c_compiler=default
+orig_cxx_compiler=default
+orig_fortran_compiler=default
+orig_useropt='-O2 -g'
+otf=no
+otfdir=
+otfinc=
+otflib=
+papi=no
+papiperfctr=no
+papipfm=no
+papisubdir=
+papithread=no
+papivirtual=no
+papiwallclock=no
+pathscale=no
+pdt=no
+pdt_cxx_compiler=default
+pdt_root_dir=.
+pdtarchdir=unknown
+pdtcompdir=
+perf=no
+perfincdir=
+perflibdir=
+perflibrary=
+perfsuite=no
+perfsuitedir=
+pgi=no
+phase=no
+pin=no
+plugins=yes
+pmi=no
+profile=no
+profilecommunicators=no
+profileheadroom=no
+profilememory=no
+profileparam=no
+profilepaths=no
+profilestats=no
+pshmem=no
+pthread=yes
+python=no
+pythoninc=
+pythonlib=
+rc=0
+readlink=/bin/readlink
+rocm=no
+rocprofiler=no
+roctracer=no
+scalasca=no
+scorep=no
+scoreplibs=
+sddf=no
+sddfdir=
+setnode0=no
+sgitimers=no
+shmem=no
+shmeminc=
+shmemlib=
+shmemlibrary=no
+sicortex=no
+smarts=no
+sol2cc=no
+sos=no
+sos_comm=mpi
+sosdir=
+sproc=no
+sqlite3=no
+sqlite3dir=
+stdcxxlib=no
+stff=no
+stffdir=
+strsignal_ok=no
+suncc=no
+symlink=dash
+systemlibelf=no
+tag=no
+targetdir=/home/sramesh/AUTOPERF/TAU_INSTALL
+tau_cray_arm64=no
+tau_links_rt=no
+tau_uselm=yes
+tauarch=unknown
+taugcclibdir=unknown
+tauoptions=
+tauprefix=/home/sramesh/AUTOPERF/TAU_INSTALL
+tauroot=/home/sramesh/AUTOPERF/tau2
+tautag=
+tautoplevel=/home/sramesh/AUTOPERF/TAU_INSTALL
+tbb=no
+tcltk=yes
+tcltkfile=/
+testlastcon=' -mpi -pthread -prefix=/home/sramesh/AUTOPERF/TAU_INSTALL -cuda=/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu'
+testlaststu=/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/lib/Makefile.tau-mpi-pthread-cupti
+threadsafe=no
+trace=no
+turnbfdoff=no
+ugni=no
+unwind_extras=
+unwind_flag=
+unwind_inc=
+unwind_lib=
+unwind_lib_flag=
+unwinder=none
+upc=no
+upc_compiler=default
+upcnetwork=mpi
+upnetwork=unknown
+use_ansic=no
+use_openacc=no
+use_opencl=no
+useropt=-O2#-g
+usingbash=no
+vampirtrace=no
+vampirtraceshow=no
+vtf=no
+xlsmp=no
+zepto=no
+zeptodir=
+zlib=no
+zlibdir=
+_spack_shell_wrapper () 
+{ 
+    for var in LD_LIBRARY_PATH DYLD_LIBRARY_PATH DYLD_FALLBACK_LIBRARY_PATH;
+    do
+        eval "if [ -n \"\${${var}-}\" ]; then export SPACK_$var=\${${var}}; fi";
+    done;
+    if [ -n "${ZSH_VERSION:-}" ]; then
+        emulate -L sh;
+    fi;
+    _sp_flags="";
+    while [ ! -z ${1+x} ] && [ "${1#-}" != "${1}" ]; do
+        _sp_flags="$_sp_flags $1";
+        shift;
+    done;
+    if [ -n "$_sp_flags" ] && [ "${_sp_flags#*h}" != "${_sp_flags}" ] || [ "${_sp_flags#*V}" != "${_sp_flags}" ]; then
+        command spack $_sp_flags "$@";
+        return;
+    fi;
+    _sp_subcommand="";
+    if [ ! -z ${1+x} ]; then
+        _sp_subcommand="$1";
+        shift;
+    fi;
+    case $_sp_subcommand in 
+        "cd")
+            _sp_arg="";
+            if [ -n "$1" ]; then
+                _sp_arg="$1";
+                shift;
+            fi;
+            if [ "$_sp_arg" = "-h" ] || [ "$_sp_arg" = "--help" ]; then
+                command spack cd -h;
+            else
+                LOC="$(spack location $_sp_arg "$@")";
+                if [ -d "$LOC" ]; then
+                    cd "$LOC";
+                else
+                    return 1;
+                fi;
+            fi;
+            return
+        ;;
+        "env")
+            _sp_arg="";
+            if [ -n "$1" ]; then
+                _sp_arg="$1";
+                shift;
+            fi;
+            if [ "$_sp_arg" = "-h" ] || [ "$_sp_arg" = "--help" ]; then
+                command spack env -h;
+            else
+                case $_sp_arg in 
+                    activate)
+                        _a=" $@";
+                        if [ -z ${1+x} ] || [ "${_a#* --sh}" != "$_a" ] || [ "${_a#* --csh}" != "$_a" ] || [ "${_a#* -h}" != "$_a" ] || [ "${_a#* --help}" != "$_a" ]; then
+                            command spack env activate "$@";
+                        else
+                            eval $(command spack $_sp_flags env activate --sh "$@");
+                        fi
+                    ;;
+                    deactivate)
+                        _a=" $@";
+                        if [ "${_a#* --sh}" != "$_a" ] || [ "${_a#* --csh}" != "$_a" ]; then
+                            command spack env deactivate "$@";
+                        else
+                            if [ -n "$*" ]; then
+                                command spack env deactivate -h;
+                            else
+                                eval $(command spack $_sp_flags env deactivate --sh);
+                            fi;
+                        fi
+                    ;;
+                    *)
+                        command spack env $_sp_arg "$@"
+                    ;;
+                esac;
+            fi;
+            return
+        ;;
+        "load" | "unload")
+            _a=" $@";
+            if [ "${_a#* --sh}" != "$_a" ] || [ "${_a#* --csh}" != "$_a" ] || [ "${_a#* -h}" != "$_a" ] || [ "${_a#* --help}" != "$_a" ]; then
+                command spack $_sp_flags $_sp_subcommand "$@";
+            else
+                eval $(command spack $_sp_flags $_sp_subcommand --sh "$@" ||                     echo "return 1");
+            fi
+        ;;
+        *)
+            command spack $_sp_flags $_sp_subcommand "$@"
+        ;;
+    esac
+}
+check_another_cube_installation () 
+{ 
+    testline=`cube_config.sh --name 2>&1`;
+    another_cube_present="no";
+    if test "x$testline" = "xCUBE"; then
+        another_cube_present="yes";
+        another_cube_dir=`cube_config.sh --cube-dir`;
+        if test "x$another_cube_dir" != "x$cubedir"; then
+            warning_about_another_cube_installation $another_cube_dir;
+            return 1;
+        fi;
+    fi;
+    if test "x$CUBE_DIR" != "x"; then
+        testline=`$CUBE_DIR/bin/cube_config.sh --name 2>&1`;
+        another_cube_present="no";
+        if test "x$testline" = "xCUBE"; then
+            another_cube_present="yes";
+            another_cube_dir=`$CUBE_DIR/bin/cube_config.sh --cube-dir`;
+            if test "x$another_cube_dir" != "x$cubedir"; then
+                warning_about_another_cube_installation $another_cube_dir;
+                return 1;
+            fi;
+        fi;
+    fi;
+    return 0
+}
+check_cube_installation () 
+{ 
+    if test "x$cubedir" != "x"; then
+        if test "x$cubedir" = "xext"; then
+            if test "x$another_cube_dir" = "x"; then
+                warning_about_general_missing_cube_installation;
+            else
+                cubedir=$another_cube_dir;
+            fi;
+        fi;
+        fix_tilde_at_the_start_of_cube_path;
+        testline=`$cubedir/bin/cube_config.sh --name 2>&1`;
+        cuberoot=$cubedir;
+        if test "x$testline" != "xCUBE"; then
+            testline=`$cubedir/../bin/cube_config.sh --name 2>&1`;
+            cuberoot=$cubedir/../;
+        fi;
+        if test "x$testline" = "xCUBE"; then
+            cubeclasspath=`$cuberoot/bin/cube_config.sh --classpath`;
+            makecubeclasspath=$cubeclasspath;
+            if [ "x$cubeclasspath" != "x" -a -f $cuberoot/lib/CubeReader.jar ]; then
+                confirm_proper_cube_installation $cuberoot;
+            fi;
+        else
+            warning_about_missing_cube_installation $cubedir;
+        fi;
+    fi;
+    return 0
+}
+clearLmod () 
+{ 
+    module --force purge;
+    eval $($LMOD_DIR/clearLMOD_cmd --shell bash --full "$@")
+}
+clearMT () 
+{ 
+    eval $($LMOD_DIR/clearLMOD_cmd --shell bash --simple)
+}
+clone () 
+{ 
+    src="$1";
+    dst="$2";
+    echo "git clone $src" "$dst";
+    git clone "$src" "$dst"
+}
+configure_java () 
+{ 
+    taushell=sh;
+    if [ $machine = solaris2* -o $machine = alpha ]; then
+        taushell=ksh;
+    fi
+}
+configure_perfexplorer () 
+{ 
+    cat ${tauroot}/tools/src/perfdmf/bin/configure.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > ${targetdir}/${architecture}/bin/perfdmf_configure;
+    chmod a+rx ${targetdir}/${architecture}/bin/perfdmf_configure;
+    cd ${targetdir}/${architecture}/bin;
+    /bin/rm -f taudb_configure;
+    ln -s perfdmf_configure taudb_configure;
+    cd ${tauroot};
+    cat ${tauroot}/tools/src/perfdmf/bin/createapp.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > ${targetdir}/${architecture}/bin/perfdmf_createapp;
+    chmod a+rx ${targetdir}/${architecture}/bin/perfdmf_createapp;
+    cat ${tauroot}/tools/src/perfdmf/bin/createexp.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > ${targetdir}/${architecture}/bin/perfdmf_createexp;
+    chmod a+rx ${targetdir}/${architecture}/bin/perfdmf_createexp;
+    cat ${tauroot}/tools/src/perfdmf/bin/loadtrial.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > ${targetdir}/${architecture}/bin/perfdmf_loadtrial;
+    chmod a+rx ${targetdir}/${architecture}/bin/perfdmf_loadtrial;
+    cd ${targetdir}/${architecture}/bin;
+    /bin/rm -f taudb_loadtrial;
+    ln -s perfdmf_loadtrial taudb_loadtrial;
+    cd ${tauroot};
+    cat ${tauroot}/tools/src/perfdmf/bin/phaseconvert.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > ${targetdir}/${architecture}/bin/phaseconvert;
+    chmod a+rx ${targetdir}/${architecture}/bin/phaseconvert;
+    cat ${tauroot}/tools/src/tau_user_setup.sh.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > ${targetdir}/${architecture}/bin/tau_user_setup.sh;
+    chmod a+rx ${targetdir}/${architecture}/bin/tau_user_setup.sh;
+    cp ${tauroot}/tools/src/perfdmf/bin/taudb_keygen ${targetdir}/${architecture}/bin/.;
+    cp ${tauroot}/tools/src/perfdmf/bin/taudb_install_cert ${targetdir}/${architecture}/bin/.;
+    mkdir -p ${targetdir}/etc;
+    cp ${tauroot}/tools/src/perfdmf/bin/derby.properties.skel ${targetdir}/etc;
+    cp ${tauroot}/tools/src/contrib/jython.registry ${targetdir}/etc;
+    cat ${tauroot}/tools/src/perfexplorer/bin/configure.skel | sed -e 's,@TAUROOTDIR@,'$tauroot',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' -e 's,@TARGETDIR@,'$targetdir',' > ${tauroot}/tools/src/perfexplorer/configure;
+    chmod a+rx ${tauroot}/tools/src/perfexplorer/configure;
+    cat ${tauroot}/tools/src/perfexplorer/bin/perfexplorer_configure.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' -e 's,@TARGETDIR@,'$targetdir',' > ${targetdir}/${architecture}/bin/perfexplorer_configure;
+    chmod a+rx ${targetdir}/${architecture}/bin/perfexplorer_configure;
+    cat ${tauroot}/tools/src/java-1.4/configure-1.4.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' -e 's,@TARGETDIR@,'$targetdir',' > ${targetdir}/${architecture}/bin/configure-1.4;
+    chmod a+rx ${targetdir}/${architecture}/bin/configure-1.4;
+    if [ ! -d ${targetdir}/etc ]; then
+        mkdir -p ${targetdir}/etc;
+    fi;
+    cp ${tauroot}/tools/src/perfexplorer/bin/perfexplorer.skel ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/dbschema.derby ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/dbschema.h2 ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/dbschema.mysql ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/dbschema.oracle ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/dbschema.postgresql ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/dbschema.db2 ${targetdir}/etc/.;
+    cp ${tauroot}/tools/src/perfexplorer/etc/java.policy ${targetdir}/etc/.;
+    if [ ! -d ${targetdir}/etc/topology ]; then
+        cp -r ${tauroot}/etc/topology ${targetdir}/etc;
+        cp ${tauroot}/etc/blacklist.txt ${targetdir}/etc/.;
+    fi;
+    cp ${tauroot}/tools/src/perfdmf/etc/* ${targetdir}/etc/.;
+    if [ ! -r ${targetdir}/etc/ptts.html.index ]; then
+        cp ${tauroot}/etc/ptts.html.* ${targetdir}/etc/.;
+    fi;
+    if [ ! -d ${targetdir}/tools/src/perfdmf/etc ]; then
+        mkdir -p ${targetdir}/tools/src/perfdmf/etc;
+    fi;
+    cp ${tauroot}/tools/src/perfdmf/etc/dbschema*.txt ${targetdir}/tools/src/perfdmf/etc/. 2> /dev/null;
+    BINTARGET=${targetdir}/${architecture}/bin;
+    JARTARGET=${targetdir}/${architecture}/lib;
+    copy_own_cube_reader_if_selected;
+    cat ${tauroot}/tools/src/paraprof/bin/paraprof.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > $BINTARGET/paraprof;
+    chmod a+rx $BINTARGET/paraprof;
+    cat ${tauroot}/tools/src/ppscript.skel | sed -e 's,@TAUROOTDIR@,'$targetdir',' -e 's,@SHELL@,'$taushell',' -e 's,@ARCH@,'$architecture',' > $BINTARGET/ppscript;
+    chmod a+rx $BINTARGET/ppscript;
+    cat ${tauroot}/tools/src/tau_portal/bin/perfdmfdb.py.skel | sed -e 's,@BINDIR@,'$BINTARGET',' > $BINTARGET/perfdmfdb.py;
+    cat ${tauroot}/tools/src/tau_portal/bin/portal.py.skel | sed -e 's,@BINDIR@,'$BINTARGET',' > $BINTARGET/portal.py;
+    cp ${tauroot}/tools/src/tau_portal/bin/tau_portal.py $BINTARGET;
+    chmod a+rx $BINTARGET/tau_portal.py $BINTARGET/portal.py $BINTARGET/perfdmfdb.py;
+    cp include/tauarch.h.default include/tauarch.h;
+    if [ $default = "true" ]; then
+        echo "#define TAU_BIN_DIR \"default\"" >> include/tauarch.h;
+    else
+        echo "#define TAU_BIN_DIR \"$BINTARGET\"" >> include/tauarch.h;
+        echo "#define TAU_LIB_DIR \"$targetdir/$machine/lib/shared$tauoptions\"" >> include/tauarch.h;
+    fi;
+    cat ${tauroot}/tools/src/perfexplorer/bin/perfexplorer.skel | sed -e 's,@TAUROOT@,'$targetdir',' -e 's,@TAUSHELL@,'$taushell',' -e 's,@TAUARCH@,'$architecture',' -e 's,@RROOT@,'$rroot',' -e 's,@ANALYSIS_ENGINE@,'weka',' -e 's,@SERVER_HOSTNAME@,'$serverhostname',' -e 's,@SERVER_OBJECT_PORT@,'$objectport',' -e 's,@SERVER_RMIREGISTRY_PORT@,'$registryport',' -e 's,@CONFIGFILE@,'$configfile',' > $BINTARGET/perfexplorer;
+    chmod a+rx $BINTARGET/perfexplorer;
+    cp ${tauroot}/tools/src/tau_gen_wrapper $BINTARGET;
+    cp ${tauroot}/tools/src/tau_macro.sh $BINTARGET;
+    if [ ! -f $BINTARGET/jracy ]; then
+        cd $BINTARGET/;
+        ln -s paraprof jracy;
+        cd ${tauroot};
+    fi;
+    cat ${tauroot}/tools/src/tau_java.skel | sed -e 's,@JARTARGET@,'$JARTARGET',' -e 's,@JDKDIR@,'$jdkdir',' > $BINTARGET/tau_java;
+    chmod a+rx $BINTARGET/tau_java;
+    cp ${tauroot}/tools/src/paraprof/bin/paraprof.jar $JARTARGET;
+    cp ${tauroot}/tools/src/perfdmf/bin/perfdmf.jar $JARTARGET;
+    cp ${tauroot}/tools/src/perfexplorer/perfexplorer.jar $JARTARGET;
+    cp ${tauroot}/src/Profile/TAU.jar $JARTARGET;
+    cp ${tauroot}/tools/src/perfexplorer/perfexplorer-1.4.jar $JARTARGET;
+    cp ${tauroot}/tools/src/vis/bin/vis.jar $JARTARGET;
+    cp ${tauroot}/tools/src/vis-jogl2/bin/vis-jogl2.jar $JARTARGET;
+    cp ${tauroot}/tools/src/common/bin/tau-common.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jargs.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/google-gson-2.1/gson-2.1.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/batik-combined.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jfreechart-1.0.12.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jcommon-1.0.15.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jgraph.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jython.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jogl/jogl.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jogl/jogl-all.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/jogl/gluegen-rt.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/derby.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/h2.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/mysql.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/postgresql.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/xerces.jar $JARTARGET;
+    cp ${tauroot}/tools/src/contrib/mesp.jar $JARTARGET;
+    cp ${tauroot}/tools/src/common/resources/tau16x16.gif $JARTARGET;
+    cp ${tauroot}/tools/src/tau_ebs_process.pl $BINTARGET;
+    cp ${tauroot}/utils/ebs2otf/tau_ebs2otf.pl $BINTARGET;
+    cp ${tauroot}/tools/src/pycoolr/bin/pycoolr $BINTARGET;
+    chmod a+rx $BINTARGET/pycoolr;
+    cp -r ${tauroot}/tools/src/pycoolr/src/pycoolrgui $BINTARGET;
+    cp ${tauroot}/tools/src/tau_resolve_addresses.py $BINTARGET;
+    chmod +x $BINTARGET/tau_resolve_addresses.py;
+    cp ${tauroot}/tools/src/tau_baseline $BINTARGET;
+    chmod +x $BINTARGET/tau_baseline;
+    case $machine in 
+        apple)
+            gunzip -c tools/src/contrib/jogl/apple/libjogl.jnilib.gz > $JARTARGET/libjogl.jnilib;
+            gunzip -c tools/src/contrib/jogl/apple/libjogl_awt.jnilib.gz > $JARTARGET/libjogl_awt.jnilib;
+            gunzip -c tools/src/contrib/jogl/apple/libjogl_cg.jnilib.gz > $JARTARGET/libjogl_cg.jnilib;
+            cp tools/src/contrib/jogl/apple/gluegen-rt-natives*.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/apple/jogl-all-natives*.jar $JARTARGET/jogl-all-natives.jar
+        ;;
+        arm64_apple)
+            tar -xzf tools/src/contrib/jogl/arm64_apple/jogl-glob.tgz -C $JARTARGET
+        ;;
+        i386_linux)
+            gunzip -c tools/src/contrib/jogl/i386_linux/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/i386_linux/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/i386_linux/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so;
+            gunzip -c tools/src/contrib/jogl/i386_linux/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            cp tools/src/contrib/jogl/i386_linux/gluegen-rt-natives*.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/i386_linux/jogl-all-natives*.jar $JARTARGET/jogl-all-natives.jar
+        ;;
+        arm64_linux)
+            gunzip -c tools/src/contrib/jogl/arm64_linux/libgluegen-rt.so.gz > $JARTARGET/libgluegen-rt.so;
+            gunzip -c tools/src/contrib/jogl/arm64_linux/libjogl_desktop.so.gz > $JARTARGET/libjogl_desktop.so;
+            gunzip -c tools/src/contrib/jogl/arm64_linux/libnativewindow_awt.so.gz > $JARTARGET/libnativewindow_awt.so;
+            gunzip -c tools/src/contrib/jogl/arm64_linux/libnativewindow_x11.so.gz > $JARTARGET/libnativewindow_x11.so;
+            cp tools/src/contrib/jogl/arm64_linux/gluegen-rt.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/arm64_linux/jogl-all.jar $JARTARGET/jogl-all-natives.jar
+        ;;
+        arm_linux)
+            gunzip -c tools/src/contrib/jogl/arm_linux/jogl.jar.gz > $JARTARGET/jogl.jar;
+            gunzip -c tools/src/contrib/jogl/arm_linux/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/arm_linux/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            cp tools/src/contrib/jogl/arm_linux/gluegen-rt-natives*.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/arm_linux/jogl-all-natives*.jar $JARTARGET/jogl-all-natives.jar;
+            if [ -r tools/src/contrib/jogl/arm_linux/libjogl_drihack.so.gz ]; then
+                gunzip -c tools/src/contrib/jogl/arm_linux/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            fi;
+            if [ ! -r /usr/lib/libGL.so.1 ]; then
+                echo "NOTE: Did not find OpenGL library, copying TAU's Mesa libGL.so.1 to arm_linux/lib directory";
+                gunzip -c tools/src/contrib/jogl/arm_linux/libGL.so.1.gz > $JARTARGET/libGL.so.1;
+            fi;
+            if [ -r tools/src/contrib/jogl/arm_linux/gluegen.jar.gz -a -r tools/src/contrib/jogl/arm_linux/libgluegen-rt.so.gz ]; then
+                gunzip -c tools/src/contrib/jogl/arm_linux/libgluegen-rt.so.gz > $JARTARGET/libgluegen-rt.so;
+                gunzip -c tools/src/contrib/jogl/arm_linux/gluegen.jar.gz > $JARTARGET/gluegen.jar;
+            fi
+        ;;
+        crayxmt)
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so
+        ;;
+        nec-sx-aurora)
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so
+        ;;
+        craycnl | sparc64fx)
+            if [ $tau_cray_arm64 = no ]; then
+                gunzip -c tools/src/contrib/jogl/x86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+                gunzip -c tools/src/contrib/jogl/x86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+                gunzip -c tools/src/contrib/jogl/x86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+                gunzip -c tools/src/contrib/jogl/x86_64/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so;
+            fi
+        ;;
+        xt3)
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so
+        ;;
+        x86_64)
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so;
+            cp tools/src/contrib/jogl/x86_64/gluegen-rt-natives*.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/x86_64/jogl-all-natives*.jar $JARTARGET/jogl-all-natives.jar
+        ;;
+        mic_linux)
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            gunzip -c tools/src/contrib/jogl/x86_64/libjogl_cg.so.gz > $JARTARGET/libjogl_cg.so
+        ;;
+        ia64)
+            gunzip -c tools/src/contrib/jogl/ia64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/ia64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/ia64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so
+        ;;
+        solaris2)
+            gunzip -c tools/src/contrib/jogl/solaris2/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/solaris2/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/solaris2/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so
+        ;;
+        solaris2-64)
+            gunzip -c tools/src/contrib/jogl/solaris2-64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/solaris2-64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/solaris2-64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so
+        ;;
+        sun386i)
+            gunzip -c tools/src/contrib/jogl/sun386i/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/sun386i/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/sun386i/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so
+        ;;
+        sunx86_64)
+            gunzip -c tools/src/contrib/jogl/sunx86_64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/sunx86_64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/sunx86_64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so
+        ;;
+        ppc64)
+            gunzip -c tools/src/contrib/jogl/ppc64/jogl.jar.gz > $JARTARGET/jogl.jar;
+            gunzip -c tools/src/contrib/jogl/ppc64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/ppc64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/ppc64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            cp tools/src/contrib/jogl/ppc64/gluegen-rt-natives*.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/ppc64/jogl-all-natives*.jar $JARTARGET/jogl-all-natives.jar
+        ;;
+        ibm64linux)
+            cp tools/src/contrib/jogl/ppc64/gluegen-rt-natives*.jar $JARTARGET/gluegen-rt-natives.jar;
+            cp tools/src/contrib/jogl/ppc64/jogl-all-natives*.jar $JARTARGET/jogl-all-natives.jar
+        ;;
+        bgp)
+            gunzip -c tools/src/contrib/jogl/ppc64/jogl.jar.gz > $JARTARGET/jogl.jar;
+            gunzip -c tools/src/contrib/jogl/ppc64/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/ppc64/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/ppc64/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so
+        ;;
+        bgq)
+            gunzip -c tools/src/contrib/jogl/bgq/jogl.jar.gz > $JARTARGET/jogl.jar;
+            gunzip -c tools/src/contrib/jogl/bgq/libjogl.so.gz > $JARTARGET/libjogl.so;
+            gunzip -c tools/src/contrib/jogl/bgq/libjogl_awt.so.gz > $JARTARGET/libjogl_awt.so;
+            gunzip -c tools/src/contrib/jogl/bgq/libjogl_drihack.so.gz > $JARTARGET/libjogl_drihack.so;
+            if [ -r ${JAVA_HOME}/lib/ppc64/libjawt.so ]; then
+                /bin/rm -f $JARTARGET/libjawt.so;
+                ln -s ${JAVA_HOME}/lib/ppc64/libjawt.so $JARTARGET/libjawt.so;
+            fi
+        ;;
+        *)
+            echo "Platform does not support JOGL, no 3d displays will be available in ParaProf"
+        ;;
+    esac
+}
+confirm_proper_cube_installation () 
+{ 
+    echo "====================================================";
+    echo "CUBE Reader is found under $1/lib.";
+    echo "CLASSPATH of it is $cubeclasspath";
+    echo "====================================================";
+    return 0
+}
+confirmation_copy_of_own_jar_file () 
+{ 
+    echo "====================================================";
+    if [ -f ${tauroot}/tools/src/contrib/CubeReader.jar ]; then
+        echo " Copy ${tauroot}/tools/src/contrib/CubeReader.jar to $JARTARGET";
+        cp ${tauroot}/tools/src/contrib/CubeReader.jar $JARTARGET;
+    else
+        echo "ERROR: Tau doesn't have own copy of CubeReader.jar under ${tauroot}/tools/src/contrib/";
+        echo "       Please check the recent TAU distribution and report this bug to tau-bugs@cs.uoregon.edu";
+        exit -1;
+    fi;
+    echo "====================================================";
+    return 0
+}
+copy_own_cube_reader_if_selected () 
+{ 
+    if test "x$cubedir" = "xown"; then
+        confirmation_copy_of_own_jar_file;
+    fi
+}
+correction_paraprof () 
+{ 
+    cd ${tauroot};
+    _tauroot=".";
+    echo "Adjust ParaProf to use CubeReader...";
+    cat ${_tauroot}/tools/src/paraprof/bin/paraprof.skel | sed -e 's,@CUBECLASSPATH@,'$cubeclasspath',' > ${_tauroot}/tools/src/paraprof/bin/paraprof.new;
+    mv ${_tauroot}/tools/src/paraprof/bin/paraprof.new ${_tauroot}/tools/src/paraprof/bin/paraprof.skel;
+    cat ${_tauroot}/tools/src/paraprof/Makefile | sed -e 's,@CUBECLASSPATH@,'$makecubeclasspath',' > ${_tauroot}/tools/src/paraprof/Makefile.new;
+    mv ${_tauroot}/tools/src/paraprof/Makefile.new ${_tauroot}/tools/src/paraprof/Makefile
+}
+correction_perfdmf () 
+{ 
+    echo "Adjust PerfDmf to use CubeReader...";
+    cat ${_tauroot}/tools/src/perfdmf/Makefile.skel | sed -e 's,@CUBECLASSPATH@,'$makecubeclasspath',' > ${_tauroot}/tools/src/perfdmf/Makefile.new;
+    mv ${_tauroot}/tools/src/perfdmf/Makefile.new ${_tauroot}/tools/src/perfdmf/Makefile
+}
+correction_perfdmf_and_paraprof () 
+{ 
+    correction_paraprof;
+    correction_perfdmf
+}
+download () 
+{ 
+    src="$1";
+    dst="$2";
+    local="$cwd/external_dependencies/$dst";
+    echo "Looking for $local...";
+    if [ -e $local ]; then
+        echo "Found $local, using it.";
+        cp $local $dst;
+    else
+        if which wget > /dev/null 2>&1; then
+            echo "wget: $src ==> $dst";
+            wget --no-check-certificate -O "$dst" "$src";
+        else
+            if which curl > /dev/null 2>&1; then
+                echo "curl: $src ==> $dst";
+                curl -L "$src" > "$dst";
+            else
+                echo "ERROR: neither curl nor wget found in your path.";
+                exit 199;
+            fi;
+        fi;
+    fi
+}
+fix_tilde_at_the_start_of_cube_path () 
+{ 
+    cubedir=`echo $cubedir | sed -e "s,^~,$HOME,"g`
+}
+installsos () 
+{ 
+    echo "installsos - current dir: `pwd`";
+    dst="$1";
+    currdir=`pwd`;
+    cd $dst;
+    mkdir build-linux;
+    cd build-linux;
+    export sosdir=$currdir/$dst/inst;
+    echo "EVPath Inst dir: $targetdir/$architecture/sos/chaos/inst";
+    echo "$sos_comm";
+    echo "$c_compiler";
+    echo "$cxx_compiler";
+    case $sos_comm in 
+        sockets)
+            echo "Compile SOS with sockets";
+            cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=$currdir/$dst/inst -DSOS_ENABLE_PYTHON=OFF -DSQLite3_DIR=$targetdir/$architecture/sos/chaos/sqlite3 -DCMAKE_C_COMPILER=$c_compiler -DCMAKE_CXX_COMPILER=$cxx_compiler -DSOS_CLOUD_SYNC_WITH_SOCKET=ON -DSOS_CLOUD_SYNC_WITH_MPI=OFF -DSOS_CLOUD_SYNC_WITH_ZEROMQ=OFF -DSOS_CLOUD_SYNC_WITH_EVPATH=OFF ..;
+            retval=$?
+        ;;
+        mpi)
+            echo "Compile SOS with mpi";
+            cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=$currdir/$dst/inst -DSOS_ENABLE_PYTHON=OFF -DSQLite3_DIR=$targetdir/$architecture/sos/chaos/sqlite3 -DCMAKE_C_COMPILER=$c_compiler -DCMAKE_CXX_COMPILER=$cxx_compiler -DSOS_CLOUD_SYNC_WITH_SOCKET=OFF -DSOS_CLOUD_SYNC_WITH_MPI=ON -DSOS_CLOUD_SYNC_WITH_ZEROMQ=OFF -DSOS_CLOUD_SYNC_WITH_EVPATH=OFF ..;
+            retval=$?
+        ;;
+        evpath)
+            echo "Compile SOS with EVPath";
+            cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=$currdir/$dst/inst -DSOS_ENABLE_PYTHON=OFF -DEVPath_DIR=$targetdir/$architecture/sos/chaos/inst -DSQLite3_DIR=$targetdir/$architecture/sos/chaos/sqlite3 -DCMAKE_C_COMPILER=$c_compiler -DCMAKE_CXX_COMPILER=$cxx_compiler -DSOS_CLOUD_SYNC_WITH_SOCKET=OFF -DSOS_CLOUD_SYNC_WITH_MPI=OFF -DSOS_CLOUD_SYNC_WITH_ZEROMQ=OFF -DSOS_CLOUD_SYNC_WITH_EVPATH=ON ..;
+            retval=$?
+        ;;
+    esac;
+    if [ $retval -eq 0 ]; then
+        echo "Compiling sos_flow...";
+    else
+        echo "Error cmake SOS_FLOW";
+        exit 1;
+    fi;
+    make -j;
+    retval=$?;
+    if [ $retval -eq 0 ]; then
+        echo "Compiled sos_flow";
+    else
+        echo "Error compiling SOS_FLOW";
+        exit 1;
+    fi;
+    make install
+}
+installsosdeps () 
+{ 
+    installdir="$1";
+    if [ -d $installdir ]; then
+        echo "sos install directory exists, trying to remove sos_flow to compile it again";
+        if [ -d $installdir/sos_flow_master ]; then
+            rm -rf $installdir/sos_flow_master;
+        fi;
+    else
+        mkdir $installdir;
+    fi;
+    cd $installdir;
+    P=`pwd`;
+    cmake_major_version=`cmake --version | head -1 |  sed "s/[^0-9.]*\([0-9.]*\).*/\1/" | cut -d. -f1`;
+    cmake_cmd=`which cmake`;
+    if [ "x$cmake_cmd" = "x" ] || [ $cmake_major_version -lt 3 ]; then
+        echo 'ERROR: cmake version 3 or higher required to build SOS dependencies, exiting.';
+        exit 1;
+    fi;
+    echo "Install SOS deps";
+    if [ -d chaos ]; then
+        echo "chaos directory exists";
+    else
+        mkdir chaos;
+    fi;
+    cd chaos;
+    currdir=`pwd`;
+    if [ -f sqlite3/bin/sqlite3 ] && [ -f sqlite3/include/sqlite3.h ] && [ -f sqlite3/lib/libsqlite3.a ]; then
+        echo "sqlite3 already installed";
+    else
+        echo "Install Sqlite3";
+        mkdir sqlite3;
+        download http://www.cs.uoregon.edu/research/paracomp/tau/tauprofile/dist/sos/sqlite-autoconf-3210000.tar.gz sqlite-autoconf-3210000.tar.gz;
+        tar -xvzf sqlite-autoconf-3210000.tar.gz;
+        rm sqlite-autoconf-3210000.tar.gz;
+        cd sqlite-autoconf-3210000;
+        ./configure --prefix=$currdir/sqlite3;
+        my_fail_check;
+        make -j;
+        make install;
+        my_fail_check;
+        cd ..;
+        rm -rf sqlite-autoconf-3210000;
+    fi;
+    if [ $sos_comm = evpath ]; then
+        mkdir build_area;
+        cd build_area;
+        echo "Download SOS dependencies: $2 $3";
+        download "$2" "$3";
+        echo "Extract SOS dependencies: $3";
+        tar -xvf "$3";
+        rm -f "$3";
+        set -x;
+        cd dill/source;
+        cmake -DENABLE_TESTING=0 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$currdir/inst $currdir/build_area/dill/source;
+        my_fail_check;
+        make all install -j;
+        my_fail_check;
+        cd ../..;
+        cd cercs_env/source;
+        cmake -DENABLE_TESTING=0 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$currdir/inst $currdir/build_area/cercs_env/source;
+        my_fail_check;
+        make all install -j;
+        my_fail_check;
+        cd ../..;
+        cd atl/source;
+        cmake -DENABLE_TESTING=0 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$currdir/inst $currdir/build_area/atl/source;
+        my_fail_check;
+        make all install -j;
+        my_fail_check;
+        cd ../..;
+        cd ffs/source;
+        cmake -DENABLE_TESTING=0 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$currdir/inst $currdir/build_area/ffs/source;
+        my_fail_check;
+        make all install -j;
+        my_fail_check;
+        cd ../..;
+        cd enet/source;
+        $currdir/build_area/enet/source/configure CFLAGS='-g -O0' CPPFLAGS='-g -O0' --prefix=$currdir/inst;
+        my_fail_check;
+        make install -j;
+        my_fail_check;
+        cd ../..;
+        cd evpath/source;
+        cmake -DENABLE_TESTING=0 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$currdir/inst $currdir/build_area/evpath/source;
+        my_fail_check;
+        make all install -j;
+        my_fail_check;
+        cd ../../..;
+        export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:${FLEXPATH_DIR}/lib/pkgconfig;
+        cd inst/lib/cmake/EVPath;
+        cp EVPathConfig.cmake ../../../;
+        cp EVPathTargets.cmake ../../../;
+        cd ../../../..;
+        echo "Install libfabric";
+        download http://www.cs.uoregon.edu/research/paracomp/tau/tauprofile/dist/sos/libfabric.zip libfabric.zip;
+        unzip libfabric.zip;
+        cd libfabric;
+        chmod +x autogen.sh;
+        ./autogen.sh;
+        currdir=`pwd`;
+        ./configure --prefix=$currdir/inst;
+        my_fail_check;
+        make install -j;
+        my_fail_check;
+        cd inst/lib;
+        cp libfabric.* ../../../inst/lib;
+        cd ../../../..;
+    fi;
+    cd $P;
+    set +x
+}
+make_directories () 
+{ 
+    if [ "$tauprefix" = "unknown" ]; then
+        fixmakeargs="$fixmakeargs tauprefix=$tauroot";
+    fi;
+    if [ ! -d $tautoplevel/$architecture ]; then
+        mkdir -p $tautoplevel/$architecture;
+    fi;
+    if [ ! -d $tautoplevel/$architecture/bin ]; then
+        mkdir -p $tautoplevel/$architecture/bin;
+    fi;
+    if [ ! -d $tautoplevel/$architecture/lib ]; then
+        mkdir -p $tautoplevel/$architecture/lib;
+    fi
+}
+ml () 
+{ 
+    eval $($LMOD_DIR/ml_cmd "$@")
+}
+module () 
+{ 
+    eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+my_fail_check () 
+{ 
+    retval=$?;
+    if [ $retval -ne 0 ]; then
+        echo "Command failed";
+        exit 1;
+    fi
+}
+restore_paraprof () 
+{ 
+    _tauroot=".";
+    echo "Unset ParaProf's cubeclasspath...";
+    cat ${_tauroot}/tools/src/paraprof/bin/paraprof.skel | sed -e 's,^CUBE_JAVA_READER=.*$,CUBE_JAVA_READER=@CUBECLASSPATH@,' > ${_tauroot}/tools/src/paraprof/bin/paraprof.new;
+    mv ${_tauroot}/tools/src/paraprof/bin/paraprof.new ${_tauroot}/tools/src/paraprof/bin/paraprof.skel;
+    cat ${_tauroot}/tools/src/paraprof/Makefile | sed -e 's,^CUBE_JAVA_READER=.*$,CUBE_JAVA_READER=@CUBECLASSPATH@,' > ${_tauroot}/tools/src/paraprof/Makefile.new;
+    mv ${_tauroot}/tools/src/paraprof/Makefile.new ${_tauroot}/tools/src/paraprof/Makefile
+}
+restore_perfdmf () 
+{ 
+    _tauroot=".";
+    _tauroot=".";
+    echo "Unset Perfdmf cubeclasspath...";
+    cat ${_tauroot}/tools/src/perfdmf/Makefile | sed -e 's,^CUBE_JAVA_READER=.*$,CUBE_JAVA_READER=@CUBECLASSPATH@,' > ${_tauroot}/tools/src/perfdmf/Makefile.new;
+    cp ${_tauroot}/tools/src/perfdmf/Makefile.new ${_tauroot}/tools/src/perfdmf/Makefile
+}
+restore_perfdmf_and_paraprof () 
+{ 
+    restore_paraprof;
+    restore_perfdmf
+}
+save_configure_env () 
+{ 
+    _tauroot=".";
+    confenvdir="$_tauroot/.configure_env";
+    md5sum="`which md5sum 2>/dev/null || which md5 2>/dev/null`";
+    if [ "x$md5sum" == "x" ]; then
+        echo "Warning: can't find md5sum or md5.";
+        return;
+    fi;
+    argsum=`echo "$all_args" | $md5sum | awk '{print $1}'`;
+    mkdir -p "$confenvdir";
+    confenvfile="$confenvdir/$argsum";
+    set > "$confenvfile";
+    fixmakeargs="$fixmakeargs confenvfile=$confenvfile"
+}
+select_cube_reader_jar () 
+{ 
+    if test "x$cubedir" != "xown"; then
+        check_another_cube_installation;
+        check_cube_installation;
+        if test "x$cubedir" = "x"; then
+            warning_about_missing_cube_installation;
+        fi;
+    else
+        cubeclasspath='${TAUROOT}/${MACHINE}/lib/CubeReader.jar';
+        makecubeclasspath="../contrib/CubeReader.jar";
+    fi;
+    return 0
+}
+spack () 
+{ 
+    : this is a shell function from: /home/sramesh/spack/share/spack/setup-env.sh;
+    : the real spack script is here: /home/sramesh/spack/bin/spack;
+    _spack_shell_wrapper "$@";
+    return $?
+}
+usage () 
+{ 
+    echo "TAU Configuration Utility ";
+    echo "***********************************************************************";
+    echo "Usage: configure [OPTIONS]";
+    echo "  where [OPTIONS] are:";
+    echo "";
+    echo "Compiler Options:";
+    echo "-c++=<compiler>  ............................ specify the C++ compiler.";
+    echo "    options [CC|KCC|g++|*xlC*|cxx|pgc++|pgcpp|FCC|guidec++|aCC|c++|ecpc|";
+    echo "    armclang++|clang++|bgclang++|hcc|g++-*|icpc|scgcc|scpathCC|pathCC|orCC].";
+    echo "-cc=<compiler> ................................ specify the C compiler.";
+    echo "     options [cc|gcc|clang|bgclang|gcc4|scgcc|KCC|pgcc|guidec|*xlc*|ecc|";
+    echo "         armclang|pathcc|orcc].";
+    echo "-fortran=<compiler> ..................... specify the Fortran compiler.";
+    echo "   options    [gnu|sgi|ibm|ibm64|hp|cray|pgi|absoft|fujitsu|sun|compaq|";
+    echo "   flang|f18|xlflang|armflang|g95|open64|kai|nec|hitachi|intel|absoft|lahey|";
+    echo "                       nagware|pathscale|gfortran|gfortran-*|gfortran4]";
+    echo "-pdt=<dir> ........ Specify location of PDT (Program Database Toolkit).";
+    echo "-pdt_c++=<compiler>  ............ specify a different PDT C++ compiler.";
+    echo "    options [CC|KCC|g++|*xlC*|cxx|pgc++|pgcpp|FCC|guidec++|aCC|c++|ecpc|";
+    echo "                                     g++-*|g++4|icpc|scgcc|pathCC|orCC].";
+    echo "-useropt='<param>' .......... arguments to compilers (defaults to -O2).";
+    echo "";
+    echo "Installation Options:";
+    echo "-prefix=<dir> ................ Specify a target installation directory.";
+    echo "-bfd=<dir | download> ....... Specify a binutils directory or download.";
+    echo "    Note: 'download' will download and build the library automatically.";
+    echo "-unwind=<dir | download> ... Specify a libunwind directory or download.";
+    echo "    Note: 'download' will download and build the library automatically.";
+    echo "-zlib=<dir | download> .......... Specify a zlib directory or download.";
+    echo "    Note: 'download' will download and build the library automatically.";
+    echo "";
+    echo "MPI Options:";
+    echo "-mpi .......................... Specify use of TAU MPI wrapper library.";
+    echo "-mpiinc=<dir> ............. Specify location of MPI include dir and use";
+    echo "                           the TAU MPI Profiling and Tracing Interface.";
+    echo "-mpilib=<dir> ............. Specify location of MPI library dir and use";
+    echo "                           the TAU MPI Profiling and Tracing Interface.";
+    echo "-mpilibrary=<library> ................ Specify a different MPI library.";
+    echo "            e.g., -mpilibrary=-lmpi_r                                  ";
+    echo "";
+    echo "OpenMP Options:";
+    echo "-openmp ........................................... Use OpenMP threads.";
+    echo "-opari .................................................... Use Opari2.";
+    echo "-ompt ............................................ Enable OMPT support.";
+    echo "";
+    echo "OpenACC Options:";
+    echo "-openacc ................................................... Use OpenACC";
+    echo "-openacclib=<dir> ...... Specify location of the OpenACC library and use";
+    echo "                            the TAU MPI Profiling and Tracing Interface.";
+    echo "";
+    echo "GPGPU Options:";
+    echo "-cuda=<dir> ................ Specify location of the top level CUDA SDK";
+    echo "directory with include subdirectory. Enables OpenCL and CUDA profiling.";
+    echo "-rocm[=<dir>] ...... Specify alternate path to ROCm (/opt/rocm default).";
+    echo "-rocprofiler=<dir> .............. Specify location of ROCm rocprofiler.";
+    echo "-level_zero[=<dir>] ................. Specify path to Intel Level Zero.";
+    echo "-roctracer=<dir> .................. Specify location of ROCm roctracer.";
+    echo "-hip=<dir> .................... Specify location of ROCm HIP directory.";
+    echo "";
+    echo "Other Options:";
+    echo "-iowrapper .................................... Build POSIX IO Wrapper.";
+    echo "-pthread .................................. Use pthread thread package.";
+    echo "-papi=<dir> ............... Specify location of PAPI (Performance API).";
+    echo "-likwid=<dir> ............................. Specify location of LIKWID.";
+    echo "-otf=<dir> ....... Specify location of Open Trace Format (OTF) Package.";
+    echo "-darshan=<dir> ............... Specify location of Darshan I/O package.";
+    echo "-python .. Automatically choose python options based on Python in path.";
+    echo "-pythoninc=<dir> ........ Specify location of Python include directory.";
+    echo "-pythonlib=<dir> ............ Specify location of Python lib directory.";
+    echo "-tag=<unique name> ........ Specify a tag to identify the installation.";
+    echo "-mpit ............................... Enable MPI-T profiling interface.";
+    echo "";
+    echo "-help ...................................... display this help message.";
+    echo "-fullhelp .............................. display the full help message.";
+    echo "";
+    echo "More advanced (and uncommon) options are available, use -fullhelp to see them."
+}
+warning_about_another_cube_installation () 
+{ 
+    echo "====================================================";
+    echo "WARNING: CUBE is detected under $1";
+    echo "====================================================";
+    return 0
+}
+warning_about_general_missing_cube_installation () 
+{ 
+    echo "====================================================";
+    echo "ERROR: Cannot find CUBE installation.";
+    echo "       Please specify precise place of CUBE using option -cube=$cubedir";
+    echo "Abort.";
+    echo "====================================================";
+    exit -1
+}
+warning_about_missing_cube_installation () 
+{ 
+    echo "====================================================";
+    echo "ERROR: Cannot find CUBE installation under $1";
+    echo "       Please check your option -cube=$cubedir";
+    echo "Abort.";
+    echo "====================================================";
+    exit -1
+}
+xSetTitleLmod () 
+{ 
+    builtin echo -n -e "\033]2;$1\007"
+}

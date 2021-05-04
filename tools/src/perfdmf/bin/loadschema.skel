@@ -1,0 +1,39 @@
+#!/bin/@SHELL@
+TAUROOT=@TAUROOTDIR@
+MACHINE=@ARCH@
+
+if [ ! -d "$TAUROOT" ]; then #If the original root directory is not found find and work from this script's bin directory
+
+  SOURCE="$0"
+  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done
+  TAUBIN="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+  TAUROOT=`dirname $TAUBIN`
+  MACHINE=`basename $TAUROOT`
+  TAUROOT=`dirname $TAUROOT`
+
+fi #End backup root search
+
+
+LIBDIR=${TAUROOT}/${MACHINE}/lib
+JARDIR=${TAUROOT}/${MACHINE}/lib
+
+JARS=${JARDIR}/paraprof.jar:${JARDIR}/perfdmf.jar:${JARDIR}/tau-common.jar:${JARDIR}/vis.jar:${JARDIR}/jogl.jar:${JARDIR}/jatha.jar:${JARDIR}/jgraph.jar:${JARDIR}/xerces.jar:${JARDIR}/jargs.jar:${JARDIR}/batik-combined.jar:${JARDIR}/jfreechart-1.0.12.jar:${JARDIR}/jcommon-1.0.15.jar:${JARDIR}/jython.jar
+
+# Check machine type for a heap space boost
+MEMORY=-Xmx800m
+
+machine=`uname -m`
+if [ "x$machine" = "xx86_64" ] ; then
+    MEMORY=-Xmx2000m
+fi
+
+java $MEMORY \
+-Dderby.system.home=${HOME}/.ParaProf \
+-cp ${JARS} \
+edu.uoregon.tau.perfdmf.loader.LoadSchema \
+-s ${PERFDMF_HOME}/data/dbschema.txt $@

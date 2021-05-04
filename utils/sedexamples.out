@@ -1,0 +1,5 @@
+
+s@.*TAU_MAKEFILE_FORTRAN=\(.*\)@TAU_MAKEFILE_FORTRAN=$\(TAUROOT\)/x86_64/lib/Makefile.tau-mpi-pthread-cupti@
+s@.*TAU_MAKEFILE_MPI=\(.*\)@TAU_MAKEFILE_MPI=$\(TAUROOT\)/x86_64/lib/Makefile.tau-mpi-pthread-cupti@
+s@.*TAU_MAKEFILE_MPI_FORTRAN=\(.*\)@TAU_MAKEFILE_MPI_FORTRAN=$\(TAUROOT\)/x86_64/lib/Makefile.tau-mpi-pthread-cupti@
+s@.*TAU_MAKEFILE_PTHREAD=\(.*\)@TAU_MAKEFILE_PTHREAD=$\(TAUROOT\)/x86_64/lib/Makefile.tau-mpi-pthread-cupti@

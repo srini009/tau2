@@ -1,0 +1,98 @@
+Making install in src
+make[1]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+make  install-am
+make[2]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+make[3]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+ /bin/mkdir -p '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libunwind.la libunwind-ptrace.la libunwind-coredump.la libunwind-x86_64.la libunwind-setjmp.la '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib'
+libtool: install: /usr/bin/install -c .libs/libunwind.so.8.0.1 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind.so.8.0.1
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind.so.8.0.1 libunwind.so.8 || { rm -f libunwind.so.8 && ln -s libunwind.so.8.0.1 libunwind.so.8; }; })
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind.so.8.0.1 libunwind.so || { rm -f libunwind.so && ln -s libunwind.so.8.0.1 libunwind.so; }; })
+libtool: install: /usr/bin/install -c .libs/libunwind.lai /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind.la
+libtool: install: /usr/bin/install -c .libs/libunwind-ptrace.so.0.0.0 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-ptrace.so.0.0.0
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-ptrace.so.0.0.0 libunwind-ptrace.so.0 || { rm -f libunwind-ptrace.so.0 && ln -s libunwind-ptrace.so.0.0.0 libunwind-ptrace.so.0; }; })
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-ptrace.so.0.0.0 libunwind-ptrace.so || { rm -f libunwind-ptrace.so && ln -s libunwind-ptrace.so.0.0.0 libunwind-ptrace.so; }; })
+libtool: install: /usr/bin/install -c .libs/libunwind-ptrace.lai /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-ptrace.la
+libtool: install: /usr/bin/install -c .libs/libunwind-coredump.so.0.0.0 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-coredump.so.0.0.0
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-coredump.so.0.0.0 libunwind-coredump.so.0 || { rm -f libunwind-coredump.so.0 && ln -s libunwind-coredump.so.0.0.0 libunwind-coredump.so.0; }; })
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-coredump.so.0.0.0 libunwind-coredump.so || { rm -f libunwind-coredump.so && ln -s libunwind-coredump.so.0.0.0 libunwind-coredump.so; }; })
+libtool: install: /usr/bin/install -c .libs/libunwind-coredump.lai /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-coredump.la
+libtool: install: warning: relinking `libunwind-x86_64.la'
+libtool: install: (cd /home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src; /bin/bash /home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/libtool  --tag CC --mode=relink gcc -g -O2 -fexceptions -Wall -Wsign-compare -XCClinker -nostartfiles -version-info 8:1:0 -o libunwind-x86_64.la -rpath /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib os-linux.lo mi/init.lo mi/flush_cache.lo mi/mempool.lo mi/strerror.lo x86_64/is_fpreg.lo x86_64/regname.lo x86_64/Gos-linux.lo mi/Gdyn-extract.lo mi/Gdyn-remote.lo mi/Gfind_dynamic_proc_info.lo mi/Gget_accessors.lo mi/Gget_proc_info_by_ip.lo mi/Gget_proc_name.lo mi/Gput_dynamic_unwind_info.lo mi/Gdestroy_addr_space.lo mi/Gget_reg.lo mi/Gset_reg.lo mi/Gget_fpreg.lo mi/Gset_fpreg.lo mi/Gset_caching_policy.lo mi/Gset_cache_size.lo x86_64/Gapply_reg_state.lo x86_64/Greg_states_iterate.lo x86_64/Gcreate_addr_space.lo x86_64/Gget_save_loc.lo x86_64/Gglobal.lo x86_64/Ginit.lo x86_64/Ginit_local.lo x86_64/Ginit_remote.lo x86_64/Gget_proc_info.lo x86_64/Gregs.lo x86_64/Gresume.lo x86_64/Gstash_frame.lo x86_64/Gstep.lo x86_64/Gtrace.lo libunwind-dwarf-generic.la libunwind-elf64.la libunwind.la -lc )
+libtool: relink: gcc -shared  -fPIC -DPIC  .libs/os-linux.o mi/.libs/init.o mi/.libs/flush_cache.o mi/.libs/mempool.o mi/.libs/strerror.o x86_64/.libs/is_fpreg.o x86_64/.libs/regname.o x86_64/.libs/Gos-linux.o mi/.libs/Gdyn-extract.o mi/.libs/Gdyn-remote.o mi/.libs/Gfind_dynamic_proc_info.o mi/.libs/Gget_accessors.o mi/.libs/Gget_proc_info_by_ip.o mi/.libs/Gget_proc_name.o mi/.libs/Gput_dynamic_unwind_info.o mi/.libs/Gdestroy_addr_space.o mi/.libs/Gget_reg.o mi/.libs/Gset_reg.o mi/.libs/Gget_fpreg.o mi/.libs/Gset_fpreg.o mi/.libs/Gset_caching_policy.o mi/.libs/Gset_cache_size.o x86_64/.libs/Gapply_reg_state.o x86_64/.libs/Greg_states_iterate.o x86_64/.libs/Gcreate_addr_space.o x86_64/.libs/Gget_save_loc.o x86_64/.libs/Gglobal.o x86_64/.libs/Ginit.o x86_64/.libs/Ginit_local.o x86_64/.libs/Ginit_remote.o x86_64/.libs/Gget_proc_info.o x86_64/.libs/Gregs.o x86_64/.libs/Gresume.o x86_64/.libs/Gstash_frame.o x86_64/.libs/Gstep.o x86_64/.libs/Gtrace.o  -Wl,--whole-archive ./.libs/libunwind-dwarf-generic.a ./.libs/libunwind-elf64.a -Wl,--no-whole-archive  -Wl,-rpath -Wl,/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib -L/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib -lunwind -lgcc_s -llzma -lc  -O2 -nostartfiles   -Wl,-soname -Wl,libunwind-x86_64.so.8 -o .libs/libunwind-x86_64.so.8.0.1
+libtool: install: /usr/bin/install -c .libs/libunwind-x86_64.so.8.0.1T /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.so.8.0.1
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-x86_64.so.8.0.1 libunwind-x86_64.so.8 || { rm -f libunwind-x86_64.so.8 && ln -s libunwind-x86_64.so.8.0.1 libunwind-x86_64.so.8; }; })
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-x86_64.so.8.0.1 libunwind-x86_64.so || { rm -f libunwind-x86_64.so && ln -s libunwind-x86_64.so.8.0.1 libunwind-x86_64.so; }; })
+libtool: install: /usr/bin/install -c .libs/libunwind-x86_64.lai /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.la
+libtool: install: warning: relinking `libunwind-setjmp.la'
+libtool: install: (cd /home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src; /bin/bash /home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/libtool  --tag CC --mode=relink gcc -g -O2 -fexceptions -Wall -Wsign-compare -XCClinker -nostartfiles -version-info 0:0:0 -o libunwind-setjmp.la -rpath /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib setjmp/longjmp.lo setjmp/siglongjmp.lo x86_64/longjmp.lo x86_64/siglongjmp.lo libunwind-elf64.la libunwind-x86_64.la libunwind.la -lc )
+libtool: relink: gcc -shared  -fPIC -DPIC  setjmp/.libs/longjmp.o setjmp/.libs/siglongjmp.o x86_64/.libs/longjmp.o x86_64/.libs/siglongjmp.o  -Wl,--whole-archive ./.libs/libunwind-elf64.a -Wl,--no-whole-archive  -Wl,-rpath -Wl,/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib -L/home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src/.libs -L/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib -lunwind-x86_64 -lunwind -lgcc_s -llzma -lc  -O2 -nostartfiles   -Wl,-soname -Wl,libunwind-setjmp.so.0 -o .libs/libunwind-setjmp.so.0.0.0
+libtool: install: /usr/bin/install -c .libs/libunwind-setjmp.so.0.0.0T /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-setjmp.so.0.0.0
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-setjmp.so.0.0.0 libunwind-setjmp.so.0 || { rm -f libunwind-setjmp.so.0 && ln -s libunwind-setjmp.so.0.0.0 libunwind-setjmp.so.0; }; })
+libtool: install: (cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && { ln -s -f libunwind-setjmp.so.0.0.0 libunwind-setjmp.so || { rm -f libunwind-setjmp.so && ln -s libunwind-setjmp.so.0.0.0 libunwind-setjmp.so; }; })
+libtool: install: /usr/bin/install -c .libs/libunwind-setjmp.lai /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-setjmp.la
+libtool: install: /usr/bin/install -c .libs/libunwind.a /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind.a
+libtool: install: chmod 644 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind.a
+libtool: install: ranlib /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind.a
+libtool: install: /usr/bin/install -c .libs/libunwind-ptrace.a /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-ptrace.a
+libtool: install: chmod 644 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-ptrace.a
+libtool: install: ranlib /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-ptrace.a
+libtool: install: /usr/bin/install -c .libs/libunwind-coredump.a /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-coredump.a
+libtool: install: chmod 644 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-coredump.a
+libtool: install: ranlib /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-coredump.a
+libtool: install: /usr/bin/install -c .libs/libunwind-x86_64.a /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.a
+libtool: install: chmod 644 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.a
+libtool: install: ranlib /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.a
+libtool: install: /usr/bin/install -c .libs/libunwind-setjmp.a /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-setjmp.a
+libtool: install: chmod 644 /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-setjmp.a
+libtool: install: ranlib /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-setjmp.a
+libtool: finish: PATH="/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/ffmpeg-4.2.2-r6ac5vpty7t2ime4z7udkjiyviw2umor/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/yasm-1.3.0-yd2qg2k6r3kfwuik5gnppcmxkoi2brvc/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/bzip2-1.0.8-eiddc5626vlk3ujkac6j7bsoxazl4fvx/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/alsa-lib-1.2.3.2-ncfo5pmqj24e3m6mgwyq6ejdroay2hft/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/cuda-11.2.0-kyr4zwi3w2avbqmosro6y7rdv2lg5yyu/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libxml2-2.9.10-vzoz5mlhquriztsoqbtpr5fo2mcwot4g/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/xz-5.2.5-q6fjdpg2djewh436ssdahbrsubkl4czx/bin:/gpfs/mira-home/sramesh/spack/opt/spack/linux-ubuntu18.04-zen2/gcc-10.2.0/libiconv-1.16-4jajaxab6hhhcpge3hl27rhj3cpkwmwb/bin:/home/sramesh/AUTOPERF/LAMMPS/bin:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/compilers/bin:/lus/theta-fs0/software/thetagpu/hpc-sdk/Linux_x86_64/20.9/cuda/bin:/home/sramesh/spack/bin:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/include:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/ucx-1.9.0rc7/bin:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/include:/lus/theta-fs0/software/thetagpu/openmpi-4.0.5/bin:/usr/local/cuda/bin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sramesh/bin:/sbin" ldconfig -n /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make  install-exec-hook
+make[4]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+if test -f /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.a; then \
+	cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && ln -s -f libunwind-x86_64.a libunwind-generic.a; \
+fi
+if test -f /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/libunwind-x86_64.so; then \
+	cd /home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib && ln -s -f libunwind-x86_64.so \
+	libunwind-generic.so; \
+fi
+make[4]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+ /bin/mkdir -p '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libunwind-generic.pc unwind/libunwind.pc ptrace/libunwind-ptrace.pc setjmp/libunwind-setjmp.pc coredump/libunwind-coredump.pc '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/lib/pkgconfig'
+make[3]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+make[2]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+make[1]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/src'
+Making install in tests
+make[1]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/tests'
+make[2]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/tests'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/tests'
+make[1]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1/tests'
+make[1]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1'
+make[2]: Entering directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/include'
+ /usr/bin/install -c -m 644 include/libunwind-dynamic.h include/libunwind-ptrace.h include/libunwind-coredump.h include/libunwind-x86_64.h include/libunwind.h include/unwind.h '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/include'
+ /bin/mkdir -p '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/include'
+ /usr/bin/install -c -m 644 include/libunwind-common.h '/home/sramesh/AUTOPERF/TAU_INSTALL/x86_64/libunwind-1.3.1-gcc/include'
+make[2]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1'
+make[1]: Leaving directory '/gpfs/mira-home/sramesh/AUTOPERF/tau2/libunwind-1.3.1'
