@@ -1534,15 +1534,19 @@ void Tau_util_do_invoke_callbacks(Tau_plugin_event event, PluginKey key, const v
     /* GPU EVENTS START */
     case TAU_PLUGIN_EVENT_GPU_INIT: {
       Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_init_data_t*)data, key);
+      break;
     }
     case TAU_PLUGIN_EVENT_GPU_FINALIZE: {
       Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_finalize_data_t*)data, key);
+      break;
     }
     case TAU_PLUGIN_EVENT_GPU_KERNEL_START: {
       Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_kernel_start_data_t*)data, key);
+      break;
     }
     case TAU_PLUGIN_EVENT_GPU_KERNEL_STOP: {
       Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_kernel_stop_data_t*)data, key);
+      break;
     }
     /* GPU EVENTS STOP */
    default: {

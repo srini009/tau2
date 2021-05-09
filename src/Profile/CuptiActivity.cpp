@@ -1060,7 +1060,6 @@ void Tau_handle_cupti_api_exit (void *ud, CUpti_CallbackDomain domain,
             Tau_gpu_exit_event(cbInfo->functionName);
 
             if(Tau_plugins_enabled.gpu_kernel_stop) {
-	      fprintf(stderr, "Inside kernel stop\n");
               Tau_plugin_event_gpu_kernel_stop_data_t plugin_data;
               plugin_data.tid = RtsLayer::myThread();
               Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_KERNEL_STOP, "*", &plugin_data);
