@@ -1332,6 +1332,7 @@ void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_init_data_t* data, PluginKe
   for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
     if (Tau_get_plugin_callback_map()[*it]->GpuInit != 0)
       Tau_get_plugin_callback_map()[*it]->GpuInit(data);
+  }
 }
 
 /**************************************************************************************************************************
@@ -1341,6 +1342,7 @@ void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_finalize_data_t* data, Plug
   for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
     if (Tau_get_plugin_callback_map()[*it]->GpuFinalize != 0)
       Tau_get_plugin_callback_map()[*it]->GpuFinalize(data);
+  }
 }
 
 /**************************************************************************************************************************
@@ -1350,6 +1352,7 @@ void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_kernel_start_data_t* data, 
   for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
     if (Tau_get_plugin_callback_map()[*it]->GpuKernelStart != 0)
       Tau_get_plugin_callback_map()[*it]->GpuKernelStart(data);
+  }
 }
 
 /**************************************************************************************************************************
@@ -1359,6 +1362,7 @@ void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_kernel_stop_data_t* data, P
   for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
     if (Tau_get_plugin_callback_map()[*it]->GpuKernelStop != 0)
       Tau_get_plugin_callback_map()[*it]->GpuKernelStop(data);
+  }
 }
 
 /* GPU EVENTS END */
