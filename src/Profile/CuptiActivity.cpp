@@ -1,6 +1,8 @@
 #include <Profile/CuptiActivity.h>
 #include <Profile/CuptiLayer.h>
 #include <Profile/TauMetaData.h>
+#include <Profile/TauPluginInternals.h>
+#include <Profile/TauPluginCPPTypes.h>
 #include <iostream>
 #include <mutex>
 #include <time.h>
