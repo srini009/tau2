@@ -719,6 +719,10 @@ extern "C" void Tau_util_init_tau_plugin_callbacks(Tau_plugin_callbacks * cb) {
   cb->OmptTargetDataOp = 0;
   cb->OmptTargetSubmit = 0;
   cb->OmptFinalize = 0;
+  cb->GpuInit = 0;
+  cb->GpuFinalize = 0;
+  cb->GpuKernelStart = 0;
+  cb->GpuKernelStop = 0;
 }
 
 /**************************************************************************************************************************
@@ -762,6 +766,10 @@ void Tau_util_make_callback_copy(Tau_plugin_callbacks * dest, Tau_plugin_callbac
   dest->OmptTargetDataOp = src->OmptTargetDataOp;
   dest->OmptTargetSubmit = src->OmptTargetSubmit;
   dest->OmptFinalize = src->OmptFinalize;
+  dest->GpuInit = src->GpuInit;
+  dest->GpuFinalize = src->GpuFinalize;
+  dest->GpuKernelStart = src->GpuKernelStart;
+  dest->GpuKernelStop = src->GpuKernelStop;
 }
 
 /**************************************************************************************************************************
@@ -819,6 +827,11 @@ extern "C" void Tau_util_plugin_register_callbacks(Tau_plugin_callbacks * cb, un
   if (cb->OmptTargetDataOp != 0) { Tau_plugins_enabled.ompt_target_data_op = 1; }
   if (cb->OmptTargetSubmit != 0) { Tau_plugins_enabled.ompt_target_submit = 1; }
   if (cb->OmptFinalize != 0) { Tau_plugins_enabled.ompt_finalize = 1; }
+  if (cb->GpuInit != 0) { Tau_plugins_enabled.gpu_init = 1; }
+  if (cb->GpuFinalize != 0) { Tau_plugins_enabled.gpu_finalize = 1; }
+  if (cb->GpuKernelStart != 0) { Tau_plugins_enabled.gpu_kernel_start = 1; }
+  if (cb->GpuKernelStop != 0) { Tau_plugins_enabled.gpu_kernel_stop = 1; }
+
 
   /* Register needed OMPT callback if they are not already registered */
 #if defined(TAU_USE_OMPT) || defined (TAU_USE_OMPT_TR6) || defined (TAU_USE_OMPT_TR7) || defined (TAU_USE_OMPT_5_0)
