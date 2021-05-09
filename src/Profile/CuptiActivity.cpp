@@ -692,6 +692,13 @@ void Tau_cupti_onload()
 	    Tau_cupti_init();
     }
 
+    /* GPU Plugin Event */
+    if(Tau_plugins_enabled.gpu_init) {
+      Tau_plugin_event_gpu_init_data_t plugin_data;
+      plugin_data.tid = RtsLayer::myThread();
+      Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_INIT, "*", &plugin_data);
+    }
+
 	TAU_DEBUG_PRINT("TAU: exiting Tau_cupti_onload\n");
 
 }
@@ -702,6 +709,13 @@ void Tau_cupti_onunload() {
     }
     if (TauEnv_get_cuda_track_sass() && TauEnv_get_cuda_csv_output()) {
         write_sass_output();
+    }
+
+    /* GPU Plugin Event */
+    if(Tau_plugins_enabled.gpu_finalize) {
+      Tau_plugin_event_gpu_finalize_data_t plugin_data;
+      plugin_data.tid = RtsLayer::myThread();
+      Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_FINALIZE, "*", &plugin_data);
     }
 }
 
@@ -978,6 +992,13 @@ void Tau_handle_cupti_api_enter (void *ud, CUpti_CallbackDomain domain,
             if (TauEnv_get_thread_per_gpu_stream()) {
                 TAU_TRIGGER_EVENT("Correlation ID", cbInfo->correlationId);
             }
+            /* GPU Plugin Event */
+            if(Tau_plugins_enabled.gpu_kernel_start) {
+              Tau_plugin_event_gpu_kernel_start_data_t plugin_data;
+              plugin_data.tid = RtsLayer::myThread();
+              Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_KERNEL_START, "*", &plugin_data);
+            }
+
 #endif
 
 	    Tau_CuptiLayer_enable_eventgroup();
@@ -1035,6 +1056,12 @@ void Tau_handle_cupti_api_exit (void *ud, CUpti_CallbackDomain domain,
         }
 #else
             Tau_gpu_exit_event(cbInfo->functionName);
+
+            if(Tau_plugins_enabled.gpu_kernel_stop) {
+              Tau_plugin_event_gpu_kernel_stop_data_t plugin_data;
+              plugin_data.tid = RtsLayer::myThread();
+              Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_KERNEL_STOP, "*", &plugin_data);
+            }
 #endif
         // Do a synchronization, so that we can get accurate counters.
         if (Tau_Global_numGPUCounters > 0) {
