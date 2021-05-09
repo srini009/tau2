@@ -21,11 +21,11 @@ using namespace std;
 //#define TAU_CUPTI_DEBUG_COUNTERS
 #define TAU_DEBUG_ENV
 
-//#ifdef TAU_DEBUG_CUPTI
+#ifdef TAU_DEBUG_CUPTI
 #define TAU_DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( false )
-//#else
-//#define TAU_DEBUG_PRINT(...) do{ } while ( false )
-//#endif
+#else
+#define TAU_DEBUG_PRINT(...) do{ } while ( false )
+#endif
 
 #if CUDA_VERSION >= 9000
 #define CUPTI_KERNEL_TYPE CUpti_ActivityKernel4
