@@ -17,22 +17,22 @@
 #include <Profile/TauPlugin.h>
 
 int Tau_plugin_gpu_event_init(Tau_plugin_event_gpu_init_data_t* data) {
-    fprint(stderr, "TAU Plugin Event: GPU Profiling Initialized.\n");
+    fprintf(stderr, "TAU Plugin Event: GPU Profiling Initialized.\n");
     return 0;
 }
 
 int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
-    fprint(stderr, "TAU Plugin Event: GPU Profiling Finalized.\n");
+    fprintf(stderr, "TAU Plugin Event: GPU Profiling Finalized.\n");
     return 0;
 }
 
 int Tau_plugin_gpu_event_kernel_start(Tau_plugin_event_gpu_kernel_start_data_t* data) {
-    fprint(stderr, "TAU Plugin Event: GPU Kernel Start.\n");
+    fprintf(stderr, "TAU Plugin Event: GPU Kernel Start.\n");
     return 0;
 }
 
 int Tau_plugin_gpu_event_kernel_stop(Tau_plugin_event_gpu_kernel_stop_data_t* data) {
-    fprint(stderr, "TAU Plugin Event: GPU Kernel Stop.\n");
+    fprintf(stderr, "TAU Plugin Event: GPU Kernel Stop.\n");
     return 0;
 }
 
