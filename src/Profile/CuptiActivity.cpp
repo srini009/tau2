@@ -21,11 +21,11 @@ using namespace std;
 //#define TAU_CUPTI_DEBUG_COUNTERS
 #define TAU_DEBUG_ENV
 
-#ifdef TAU_DEBUG_CUPTI
+//#ifdef TAU_DEBUG_CUPTI
 #define TAU_DEBUG_PRINT(...) do{ fprintf( stderr, __VA_ARGS__ ); } while( false )
-#else
-#define TAU_DEBUG_PRINT(...) do{ } while ( false )
-#endif
+//#else
+//#define TAU_DEBUG_PRINT(...) do{ } while ( false )
+//#endif
 
 #if CUDA_VERSION >= 9000
 #define CUPTI_KERNEL_TYPE CUpti_ActivityKernel4
@@ -1060,6 +1060,7 @@ void Tau_handle_cupti_api_exit (void *ud, CUpti_CallbackDomain domain,
             Tau_gpu_exit_event(cbInfo->functionName);
 
             if(Tau_plugins_enabled.gpu_kernel_stop) {
+	      fprintf(stderr, "Inside kernel stop\n");
               Tau_plugin_event_gpu_kernel_stop_data_t plugin_data;
               plugin_data.tid = RtsLayer::myThread();
               Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_KERNEL_STOP, "*", &plugin_data);
@@ -2253,7 +2254,7 @@ void Tau_openacc_process_cupti_activity(CUpti_Activity *record);
                 device.computeCapabilityMajor == 7 &&
                 device.computeCapabilityMinor > 1)
         {
-            TAU_VERBOSE("TAU Warning: GPU occupancy calculator is not implemented for devices of compute capability > 7.1.");
+            //TAU_VERBOSE("TAU Warning: GPU occupancy calculator is not implemented for devices of compute capability > 7.1.");
             return 0;
         }
         //gpu occupancy available.
