@@ -16,9 +16,9 @@ using namespace std;
 
 #include <cxxabi.h>
 
-//#define TAU_DEBUG_CUPTI
-//#define TAU_DEBUG_CUPTI_COUNTERS
-//#define TAU_CUPTI_DEBUG_COUNTERS
+#define TAU_DEBUG_CUPTI
+#define TAU_DEBUG_CUPTI_COUNTERS
+#define TAU_CUPTI_DEBUG_COUNTERS
 #define TAU_DEBUG_ENV
 
 #ifdef TAU_DEBUG_CUPTI
@@ -926,6 +926,12 @@ void Tau_handle_driver_api_memcpy (void *ud, CUpti_CallbackDomain domain,
         if (TauEnv_get_thread_per_gpu_stream()) {
             TAU_TRIGGER_EVENT("Correlation ID", cbInfo->correlationId);
         }
+
+        if(Tau_plugins_enabled.gpu_memcpy_start) {
+               Tau_plugin_event_gpu_memcpy_start_data_t plugin_data;
+               plugin_data.tid = RtsLayer::myThread();
+               Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_MEMCPY_START, "*", &plugin_data);
+        }
     } else { // memcpy exit
         TAU_DEBUG_PRINT("callback for %s, exit\n", cbInfo->functionName);
         CUptiResult cuptiErr;
@@ -939,6 +945,12 @@ void Tau_handle_driver_api_memcpy (void *ud, CUpti_CallbackDomain domain,
             //cudaDeviceSynchronize();
             //record_gpu_counters_at_sync();
             Tau_cupti_activity_flush_all();
+        }
+
+        if(Tau_plugins_enabled.gpu_memcpy_stop) {
+               Tau_plugin_event_gpu_memcpy_stop_data_t plugin_data;
+               plugin_data.tid = RtsLayer::myThread();
+               Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_MEMCPY_STOP, "*", &plugin_data);
         }
     }
 }
