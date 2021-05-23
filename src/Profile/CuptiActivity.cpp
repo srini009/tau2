@@ -658,6 +658,13 @@ void Tau_cupti_init()
     Tau_cupti_enable_domains();
     disable_callbacks =0;
 
+    /* GPU Plugin Event */
+    if(Tau_plugins_enabled.gpu_init) {
+      Tau_plugin_event_gpu_init_data_t plugin_data;
+      plugin_data.tid = RtsLayer::myThread();
+      Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_INIT, "*", &plugin_data);
+    }
+
     TAU_DEBUG_PRINT("TAU: exiting Tau_cupti_init\n");
 }
 
@@ -692,13 +699,6 @@ void Tau_cupti_onload()
         // If we are not initializing, do it, then initialize Cupti
 	    Tau_init_initializeTAU();
 	    Tau_cupti_init();
-    }
-
-    /* GPU Plugin Event */
-    if(Tau_plugins_enabled.gpu_init) {
-      Tau_plugin_event_gpu_init_data_t plugin_data;
-      plugin_data.tid = RtsLayer::myThread();
-      Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_INIT, "*", &plugin_data);
     }
 
 	TAU_DEBUG_PRINT("TAU: exiting Tau_cupti_onload\n");
