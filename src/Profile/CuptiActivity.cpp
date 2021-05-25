@@ -1572,7 +1572,7 @@ void Tau_openacc_process_cupti_activity(CUpti_Activity *record);
    		           plugin_data.time = end - start;
 			   plugin_data.size = bytes;
 			   plugin_data.kind = memcpy->copyKind;
-                           Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_KERNEL_MEMCPY, "*", &plugin_data);
+                           Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_MEMCPY, "*", &plugin_data);
                         }
 
                         int taskId = get_taskid_from_context_id(contextId, streamId);
@@ -1644,7 +1644,7 @@ void Tau_openacc_process_cupti_activity(CUpti_Activity *record);
    		           plugin_data.time = end - start;
 			   plugin_data.size = bytes;
 			   plugin_data.kind = memcpy->copyKind;
-                           Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_KERNEL_MEMCPY, "*", &plugin_data);
+                           Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_MEMCPY, "*", &plugin_data);
                         }
                         //We do not always know on the corresponding host event on
                         //the CPU what type of copy we have so we need to register
