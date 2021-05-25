@@ -26,23 +26,13 @@ int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
     return 0;
 }
 
-int Tau_plugin_gpu_event_kernel_start(Tau_plugin_event_gpu_kernel_start_data_t* data) {
-    fprintf(stderr, "TAU Plugin Event: GPU Kernel Start.\n");
+int Tau_plugin_gpu_event_kernel_exec(Tau_plugin_event_gpu_kernel_exec_data_t* data) {
+    fprintf(stderr, "TAU Plugin Event: GPU Kernel time: %lu\n", data->time);
     return 0;
 }
 
-int Tau_plugin_gpu_event_kernel_stop(Tau_plugin_event_gpu_kernel_stop_data_t* data) {
-    fprintf(stderr, "TAU Plugin Event: GPU Kernel Stop.\n");
-    return 0;
-}
-
-int Tau_plugin_gpu_event_memcpy_start(Tau_plugin_event_gpu_memcpy_start_data_t* data) {
-    fprintf(stderr, "TAU Plugin Event: GPU Memcpy Start.\n");
-    return 0;
-}
-
-int Tau_plugin_gpu_event_memcpy_stop(Tau_plugin_event_gpu_memcpy_stop_data_t* data) {
-    fprintf(stderr, "TAU Plugin Event: GPU Memcpy Stop.\n");
+int Tau_plugin_gpu_event_memcpy(Tau_plugin_event_gpu_memcpy_data_t* data) {
+    fprintf(stderr, "TAU Plugin Event: GPU Memcpy time, data, kind: %lu, %lu, %d\n", data->time, data->size, data->kind);
     return 0;
 }
 
@@ -57,10 +47,8 @@ extern "C" int Tau_plugin_init_func(int argc, char **argv, int id) {
     /* Required event support */
     cb.GpuInit = Tau_plugin_gpu_event_init;
     cb.GpuFinalize = Tau_plugin_gpu_event_finalize;
-    cb.GpuKernelStart = Tau_plugin_gpu_event_kernel_start;
-    cb.GpuKernelStop = Tau_plugin_gpu_event_kernel_stop;
-    cb.GpuMemcpyStart = Tau_plugin_gpu_event_memcpy_start;
-    cb.GpuMemcpyStop = Tau_plugin_gpu_event_memcpy_stop;
+    cb.GpuKernelExec = Tau_plugin_gpu_event_kernel_exec;
+    cb.GpuMemcpy = Tau_plugin_gpu_event_memcpy;
 
     /* Register the callback object */
     TAU_UTIL_PLUGIN_REGISTER_CALLBACKS(&cb, id);
