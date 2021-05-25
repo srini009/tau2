@@ -75,21 +75,17 @@ typedef struct Tau_plugin_event_gpu_finalize_data {
    int tid;
 } Tau_plugin_event_gpu_finalize_data_t;
 
-typedef struct Tau_plugin_event_gpu_kernel_start_data {
+typedef struct Tau_plugin_event_gpu_kernel_exec_data {
    int tid;
-} Tau_plugin_event_gpu_kernel_start_data_t;
+   uint64_t time;
+} Tau_plugin_event_gpu_kernel_exec_data_t;
 
-typedef struct Tau_plugin_event_gpu_kernel_stop_data {
+typedef struct Tau_plugin_event_gpu_memcpy_data {
    int tid;
-} Tau_plugin_event_gpu_kernel_stop_data_t;
-
-typedef struct Tau_plugin_event_gpu_memcpy_start_data {
-   int tid;
-} Tau_plugin_event_gpu_memcpy_start_data_t;
-
-typedef struct Tau_plugin_event_gpu_memcpy_stop_data {
-   int tid;
-} Tau_plugin_event_gpu_memcpy_stop_data_t;
+   uint64_t time;
+   uint64_t bytes;
+   uint8_t kind;
+} Tau_plugin_event_gpu_memcpy_data_t;
 /* GPU EVENTS END */
 
 typedef struct Tau_plugin_event_post_init_data {
@@ -484,10 +480,8 @@ typedef int (*Tau_plugin_ompt_finalize)(Tau_plugin_event_ompt_finalize_data_t*);
 /* GPU EVENTS BEGIN */
 typedef int (*Tau_plugin_gpu_init)(Tau_plugin_event_gpu_init_data_t*);
 typedef int (*Tau_plugin_gpu_finalize)(Tau_plugin_event_gpu_finalize_data_t*);
-typedef int (*Tau_plugin_gpu_kernel_start)(Tau_plugin_event_gpu_kernel_start_data_t*);
-typedef int (*Tau_plugin_gpu_kernel_stop)(Tau_plugin_event_gpu_kernel_stop_data_t*);
-typedef int (*Tau_plugin_gpu_memcpy_start)(Tau_plugin_event_gpu_memcpy_start_data_t*);
-typedef int (*Tau_plugin_gpu_memcpy_stop)(Tau_plugin_event_gpu_memcpy_stop_data_t*);
+typedef int (*Tau_plugin_gpu_kernel_exec)(Tau_plugin_event_gpu_kernel_exec_data_t*);
+typedef int (*Tau_plugin_gpu_memcpy)(Tau_plugin_event_gpu_memcpy_data_t*);
 /* GPU EVENTS END */
 
 
@@ -533,10 +527,8 @@ typedef struct Tau_plugin_callbacks {
 /* GPU EVENTS BEGIN */
    Tau_plugin_gpu_init GpuInit;
    Tau_plugin_gpu_finalize GpuFinalize;
-   Tau_plugin_gpu_kernel_start GpuKernelStart;
-   Tau_plugin_gpu_kernel_stop GpuKernelStop;
-   Tau_plugin_gpu_memcpy_start GpuMemcpyStart;
-   Tau_plugin_gpu_memcpy_stop GpuMemcpyStop;
+   Tau_plugin_gpu_kernel_exec GpuKernelExec;
+   Tau_plugin_gpu_memcpy GpuMemcpy;
 /* GPU EVENTS END */   
 } Tau_plugin_callbacks_t;
 
@@ -582,10 +574,8 @@ typedef enum Tau_plugin_event {
    /* GPU KERNEL START */
    TAU_PLUGIN_EVENT_GPU_INIT,
    TAU_PLUGIN_EVENT_GPU_FINALIZE,
-   TAU_PLUGIN_EVENT_GPU_KERNEL_START,
-   TAU_PLUGIN_EVENT_GPU_KERNEL_STOP,
-   TAU_PLUGIN_EVENT_GPU_MEMCPY_START,
-   TAU_PLUGIN_EVENT_GPU_MEMCPY_STOP,
+   TAU_PLUGIN_EVENT_GPU_KERNEL_EXEC,
+   TAU_PLUGIN_EVENT_GPU_MEMCPY,
    /* GPU KERNEL STOP */
 
    /* Max for number of events */
@@ -634,10 +624,8 @@ typedef struct Tau_plugin_callbacks_active {
     /* GPU KERNEL START */
     unsigned int gpu_init;
     unsigned int gpu_finalize;
-    unsigned int gpu_kernel_start;
-    unsigned int gpu_kernel_stop;
-    unsigned int gpu_memcpy_start;
-    unsigned int gpu_memcpy_stop;
+    unsigned int gpu_kernel_exec;
+    unsigned int gpu_memcpy;
     /* GPU KERNEL STOP */
 } Tau_plugin_callbacks_active_t;
 

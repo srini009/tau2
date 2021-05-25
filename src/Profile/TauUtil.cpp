@@ -494,10 +494,8 @@ void Tau_enable_plugins_for_all_events() {
   /* GPU EVENTS BEGIN */
   Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_INIT, "*");
   Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_FINALIZE, "*");
-  Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_KERNEL_START, "*");
-  Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_KERNEL_STOP, "*");
-  Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_MEMCPY_START, "*");
-  Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_MEMCPY_STOP, "*");
+  Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_KERNEL_EXEC, "*");
+  Tau_enable_all_plugins_for_specific_event(TAU_PLUGIN_EVENT_GPU_MEMCPY, "*");
   /* GPU EVENTS END */
 }
 
@@ -723,10 +721,8 @@ extern "C" void Tau_util_init_tau_plugin_callbacks(Tau_plugin_callbacks * cb) {
   cb->OmptFinalize = 0;
   cb->GpuInit = 0;
   cb->GpuFinalize = 0;
-  cb->GpuKernelStart = 0;
-  cb->GpuKernelStop = 0;
-  cb->GpuMemcpyStart = 0;
-  cb->GpuMemcpyStop = 0;
+  cb->GpuKernelExec = 0;
+  cb->GpuMemcpy = 0;
 }
 
 /**************************************************************************************************************************
@@ -772,10 +768,8 @@ void Tau_util_make_callback_copy(Tau_plugin_callbacks * dest, Tau_plugin_callbac
   dest->OmptFinalize = src->OmptFinalize;
   dest->GpuInit = src->GpuInit;
   dest->GpuFinalize = src->GpuFinalize;
-  dest->GpuKernelStart = src->GpuKernelStart;
-  dest->GpuKernelStop = src->GpuKernelStop;
-  dest->GpuMemcpyStart = src->GpuMemcpyStart;
-  dest->GpuMemcpyStop = src->GpuMemcpyStop;
+  dest->GpuKernelExec = src->GpuKernelExec;
+  dest->GpuMemcpy = src->GpuMemcpy;
 }
 
 /**************************************************************************************************************************
@@ -835,10 +829,8 @@ extern "C" void Tau_util_plugin_register_callbacks(Tau_plugin_callbacks * cb, un
   if (cb->OmptFinalize != 0) { Tau_plugins_enabled.ompt_finalize = 1; }
   if (cb->GpuInit != 0) { Tau_plugins_enabled.gpu_init = 1; }
   if (cb->GpuFinalize != 0) { Tau_plugins_enabled.gpu_finalize = 1; }
-  if (cb->GpuKernelStart != 0) { Tau_plugins_enabled.gpu_kernel_start = 1; }
-  if (cb->GpuKernelStop != 0) { Tau_plugins_enabled.gpu_kernel_stop = 1; }
-  if (cb->GpuMemcpyStart != 0) { Tau_plugins_enabled.gpu_memcpy_start = 1; }
-  if (cb->GpuMemcpyStop != 0) { Tau_plugins_enabled.gpu_memcpy_stop = 1; }
+  if (cb->GpuKernelExec != 0) { Tau_plugins_enabled.gpu_kernel_exec = 1; }
+  if (cb->GpuMemcpy != 0) { Tau_plugins_enabled.gpu_memcpy = 1; }
 
 
   /* Register needed OMPT callback if they are not already registered */
@@ -1367,42 +1359,22 @@ void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_finalize_data_t* data, Plug
 }
 
 /**************************************************************************************************************************
- * Overloaded function that invokes all registered callbacks gpu_kernel_start event
+ * Overloaded function that invokes all registered callbacks gpu_kernel_exec event
  *****************************************************************************************************************************/
-void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_kernel_start_data_t* data, PluginKey key) {
+void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_kernel_exec_data_t* data, PluginKey key) {
   for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
-    if (Tau_get_plugin_callback_map()[*it]->GpuKernelStart != 0)
-      Tau_get_plugin_callback_map()[*it]->GpuKernelStart(data);
+    if (Tau_get_plugin_callback_map()[*it]->GpuKernelExec != 0)
+      Tau_get_plugin_callback_map()[*it]->GpuKernelExec(data);
   }
 }
 
 /**************************************************************************************************************************
- * Overloaded function that invokes all registered callbacks gpu_kernel_stop event
+ * Overloaded function that invokes all registered callbacks gpu_memcpy event
  *****************************************************************************************************************************/
-void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_kernel_stop_data_t* data, PluginKey key) {
+void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_memcpy_data_t* data, PluginKey key) {
   for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
-    if (Tau_get_plugin_callback_map()[*it]->GpuKernelStop != 0)
-      Tau_get_plugin_callback_map()[*it]->GpuKernelStop(data);
-  }
-}
-
-/**************************************************************************************************************************
- * Overloaded function that invokes all registered callbacks gpu_memcpy_start event
- *****************************************************************************************************************************/
-void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_memcpy_start_data_t* data, PluginKey key) {
-  for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
-    if (Tau_get_plugin_callback_map()[*it]->GpuMemcpyStart != 0)
-      Tau_get_plugin_callback_map()[*it]->GpuMemcpyStart(data);
-  }
-}
-
-/**************************************************************************************************************************
- * Overloaded function that invokes all registered callbacks gpu_memcpy_stop event
- *****************************************************************************************************************************/
-void Tau_util_invoke_callbacks_(Tau_plugin_event_gpu_memcpy_stop_data_t* data, PluginKey key) {
-  for(std::set<unsigned int>::iterator it = Tau_get_plugins_for_named_specific_event()[key].begin(); it != Tau_get_plugins_for_named_specific_event()[key].end(); it++) {
-    if (Tau_get_plugin_callback_map()[*it]->GpuMemcpyStop != 0)
-      Tau_get_plugin_callback_map()[*it]->GpuMemcpyStop(data);
+    if (Tau_get_plugin_callback_map()[*it]->GpuMemcpy != 0)
+      Tau_get_plugin_callback_map()[*it]->GpuMemcpy(data);
   }
 }
 
@@ -1568,20 +1540,12 @@ void Tau_util_do_invoke_callbacks(Tau_plugin_event event, PluginKey key, const v
       Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_finalize_data_t*)data, key);
       break;
     }
-    case TAU_PLUGIN_EVENT_GPU_KERNEL_START: {
-      Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_kernel_start_data_t*)data, key);
+    case TAU_PLUGIN_EVENT_GPU_KERNEL_EXEC: {
+      Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_kernel_exec_data_t*)data, key);
       break;
     }
-    case TAU_PLUGIN_EVENT_GPU_KERNEL_STOP: {
-      Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_kernel_stop_data_t*)data, key);
-      break;
-    }
-    case TAU_PLUGIN_EVENT_GPU_MEMCPY_START: {
-      Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_memcpy_start_data_t*)data, key);
-      break;
-    }
-    case TAU_PLUGIN_EVENT_GPU_MEMCPY_STOP: {
-      Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_memcpy_stop_data_t*)data, key);
+    case TAU_PLUGIN_EVENT_GPU_MEMCPY: {
+      Tau_util_invoke_callbacks_((Tau_plugin_event_gpu_memcpy_data_t*)data, key);
       break;
     }
     /* GPU EVENTS STOP */
