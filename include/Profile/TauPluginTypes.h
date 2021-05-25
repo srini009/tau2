@@ -83,7 +83,7 @@ typedef struct Tau_plugin_event_gpu_kernel_exec_data {
 typedef struct Tau_plugin_event_gpu_memcpy_data {
    int tid;
    uint64_t time;
-   uint64_t bytes;
+   uint64_t size;
    uint8_t kind;
 } Tau_plugin_event_gpu_memcpy_data_t;
 /* GPU EVENTS END */
