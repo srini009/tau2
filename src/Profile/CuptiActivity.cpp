@@ -16,7 +16,7 @@ using namespace std;
 
 #include <cxxabi.h>
 
-#define TAU_DEBUG_CUPTI
+//#define TAU_DEBUG_CUPTI
 #define TAU_DEBUG_CUPTI_COUNTERS
 #define TAU_CUPTI_DEBUG_COUNTERS
 #define TAU_DEBUG_ENV
@@ -661,7 +661,6 @@ void Tau_cupti_init()
 
     /* GPU Plugin Event */
     if(Tau_plugins_enabled.gpu_init) {
-      fprintf(stderr, "Do I get hereeeee?\n");
       Tau_plugin_event_gpu_init_data_t plugin_data;
       plugin_data.tid = RtsLayer::myThread();
       Tau_util_invoke_callbacks(TAU_PLUGIN_EVENT_GPU_INIT, "*", &plugin_data);

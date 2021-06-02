@@ -16,6 +16,11 @@
 #include <Profile/TauAPI.h>
 #include <Profile/TauPlugin.h>
 
+unsigned long int total_kernel_exec_time = 0;
+unsigned long int total_bytes_transferred_HtoD = 0;
+unsigned long int total_bytes_transferred_DtoH = 0;
+unsigned long int total_memcpy_time = 0;
+
 int Tau_plugin_gpu_event_init(Tau_plugin_event_gpu_init_data_t* data) {
     fprintf(stderr, "TAU Plugin Event: GPU Profiling Initialized.\n");
     return 0;
@@ -23,16 +28,41 @@ int Tau_plugin_gpu_event_init(Tau_plugin_event_gpu_init_data_t* data) {
 
 int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
     fprintf(stderr, "TAU Plugin Event: GPU Profiling Finalized.\n");
+    double total_kernel_exec_time_s = total_kernel_exec_time/1000000000.0;
+    double total_memcpy_time_s = total_memcpy_time/1000000000.0;
+    double total_bytes_transferred_HtoD_GB = total_bytes_transferred_HtoD/1000000000.0;
+    double total_bytes_transferred_DtoH_GB = total_bytes_transferred_DtoH/1000000000.0;
+
+    fprintf(stderr, "**********************************************\n");
+    fprintf(stderr, "************ TAU AutoPerf Plugin Results      \n");
+    fprintf(stderr, "**********************************************\n");
+    fprintf(stderr, "Total kernel execution time (s): %lf\n", total_kernel_exec_time_s);
+    fprintf(stderr, "Total CPU-GPU memory transfer time (s): %lf\n", total_memcpy_time_s);
+    fprintf(stderr, "Total CPU->GPU data size (bytes): %lu\n", total_bytes_transferred_HtoD);
+    fprintf(stderr, "Total GPU->CPU data size (bytes): %lu\n", total_bytes_transferred_DtoH);
+    fprintf(stderr, "**********************************************\n");
     return 0;
 }
 
 int Tau_plugin_gpu_event_kernel_exec(Tau_plugin_event_gpu_kernel_exec_data_t* data) {
-    fprintf(stderr, "TAU Plugin Event: GPU Kernel time: %lu\n", data->time);
+    //fprintf(stderr, "TAU Plugin Event: GPU Kernel time: %lu\n", data->time);
+    RtsLayer::LockDB();
+    total_kernel_exec_time += data->time;
+    RtsLayer::UnLockDB();
+    
     return 0;
 }
 
 int Tau_plugin_gpu_event_memcpy(Tau_plugin_event_gpu_memcpy_data_t* data) {
-    fprintf(stderr, "TAU Plugin Event: GPU Memcpy time, data, kind: %lu, %lu, %d\n", data->time, data->size, data->kind);
+    //fprintf(stderr, "TAU Plugin Event: GPU Memcpy time, data, kind: %lu, %lu, %d\n", data->time, data->size, data->kind);
+    RtsLayer::LockDB();
+    if(data->kind == 1) {
+	    total_bytes_transferred_HtoD += data->size;
+    } else if(data->kind == 2) {
+	    total_bytes_transferred_DtoH += data->size;
+    }
+    total_memcpy_time += data->time;
+    RtsLayer::UnLockDB();
     return 0;
 }
 
@@ -41,7 +71,7 @@ int Tau_plugin_gpu_event_memcpy(Tau_plugin_event_gpu_memcpy_data_t* data) {
  * that the plugin is interested in listening to*/
 extern "C" int Tau_plugin_init_func(int argc, char **argv, int id) {
     Tau_plugin_callbacks_t cb;
-    TAU_VERBOSE("TAU PLUGIN GPU EVENT Init\n"); fflush(stdout);
+    TAU_VERBOSE("TAU PLUGIN GPU Init\n"); fflush(stdout);
     /* Create the callback object */
     TAU_UTIL_INIT_TAU_PLUGIN_CALLBACKS(&cb);
     /* Required event support */
