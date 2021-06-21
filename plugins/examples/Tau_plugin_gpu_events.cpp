@@ -16,6 +16,15 @@
 #include <Profile/TauAPI.h>
 #include <Profile/TauPlugin.h>
 
+#define GPU_PLUGIN_VERSION 0.1
+
+typedef struct Tau_autoperf_gpu_metric_data {
+  unsigned long int total_kernel_exec_time;
+  unsigned long int total_bytes_transferred_HtoD;
+  unsigned long int total_bytes_transferred_DtoH;
+  unsigned long int total_memcpy_time;
+} Tau_autoperf_gpu_metric_data;
+
 unsigned long int total_kernel_exec_time = 0;
 unsigned long int total_bytes_transferred_HtoD = 0;
 unsigned long int total_bytes_transferred_DtoH = 0;
@@ -24,6 +33,19 @@ unsigned long int total_memcpy_time = 0;
 int Tau_plugin_gpu_event_init(Tau_plugin_event_gpu_init_data_t* data) {
     fprintf(stderr, "TAU Plugin Event: GPU Profiling Initialized.\n");
     return 0;
+}
+
+extern "C" void Tau_darshan_export_plugin(Tau_autoperf_gpu_metric_data *data, double ver) {
+    if(data == NULL) fprintf(stderr, "TAU Plugin: Please allocate space for gpu metric data!\n"); return;
+
+    if(ver != GPU_PLUGIN_VERSION) fprintf(stderr, "TAU Plugin: Version mismatch between AutoPerf and TAU Plugin. Exiting.\n"); return;
+
+    data->total_kernel_exec_time = total_kernel_exec_time;
+    data->total_bytes_transferred_HtoD = total_bytes_transferred_HtoD;
+    data->total_bytes_transferred_DtoH = total_bytes_transferred_DtoH;
+    data->total_memcpy_time = total_memcpy_time;
+
+    fprintf(stderr, "TAU Plugin: Exported data successfully!\n");
 }
 
 int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
@@ -41,6 +63,8 @@ int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
     fprintf(stderr, "Total CPU->GPU data size (bytes): %lu\n", total_bytes_transferred_HtoD);
     fprintf(stderr, "Total GPU->CPU data size (bytes): %lu\n", total_bytes_transferred_DtoH);
     fprintf(stderr, "**********************************************\n");
+
+    Tau_darshan_export_plugin(NULL, GPU_PLUGIN_VERSION);
     return 0;
 }
 
