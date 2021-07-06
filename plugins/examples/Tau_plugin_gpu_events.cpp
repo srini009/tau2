@@ -35,17 +35,20 @@ int Tau_plugin_gpu_event_init(Tau_plugin_event_gpu_init_data_t* data) {
     return 0;
 }
 
-extern "C" void Tau_darshan_export_plugin(Tau_autoperf_gpu_metric_data *data, double ver) {
-    if(data == NULL) fprintf(stderr, "TAU Plugin: Please allocate space for gpu metric data!\n"); return;
+/* Dummy function that is intercepted by Darshan/AutoPerf */
+extern "C" void __attribute__((weak)) __Tau_darshan_export_plugin() {
+}
 
-    if(ver != GPU_PLUGIN_VERSION) fprintf(stderr, "TAU Plugin: Version mismatch between AutoPerf and TAU Plugin. Exiting.\n"); return;
+extern "C" void Tau_darshan_export_plugin(Tau_autoperf_gpu_metric_data **data, double ver) {
+    if(data == NULL) { fprintf(stderr, "TAU Plugin: Please allocate space for gpu metric data!\n"); return; }
 
-    data->total_kernel_exec_time = total_kernel_exec_time;
-    data->total_bytes_transferred_HtoD = total_bytes_transferred_HtoD;
-    data->total_bytes_transferred_DtoH = total_bytes_transferred_DtoH;
-    data->total_memcpy_time = total_memcpy_time;
+    if(ver != GPU_PLUGIN_VERSION) { fprintf(stderr, "TAU Plugin: Version mismatch between AutoPerf and TAU Plugin. Exiting.\n"); return; }
 
-    fprintf(stderr, "TAU Plugin: Exported data successfully!\n");
+    (*data)->total_kernel_exec_time = total_kernel_exec_time;
+    (*data)->total_bytes_transferred_HtoD = total_bytes_transferred_HtoD;
+    (*data)->total_bytes_transferred_DtoH = total_bytes_transferred_DtoH;
+    (*data)->total_memcpy_time = total_memcpy_time;
+
 }
 
 int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
@@ -64,7 +67,7 @@ int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
     fprintf(stderr, "Total GPU->CPU data size (bytes): %lu\n", total_bytes_transferred_DtoH);
     fprintf(stderr, "**********************************************\n");
 
-    Tau_darshan_export_plugin(NULL, GPU_PLUGIN_VERSION);
+    __Tau_darshan_export_plugin();
     return 0;
 }
 
