@@ -35,10 +35,6 @@ int Tau_plugin_gpu_event_init(Tau_plugin_event_gpu_init_data_t* data) {
     return 0;
 }
 
-/* Dummy function that is intercepted by Darshan/AutoPerf */
-extern "C" void __attribute__((weak)) __Tau_darshan_export_plugin() {
-}
-
 extern "C" void Tau_darshan_export_plugin(Tau_autoperf_gpu_metric_data **data, double ver) {
     if(data == NULL) { fprintf(stderr, "TAU Plugin: Please allocate space for gpu metric data!\n"); return; }
 
