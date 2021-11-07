@@ -62,8 +62,7 @@ int Tau_plugin_gpu_event_finalize(Tau_plugin_event_gpu_finalize_data_t* data) {
     fprintf(stderr, "Total CPU->GPU data size (bytes): %lu\n", total_bytes_transferred_HtoD);
     fprintf(stderr, "Total GPU->CPU data size (bytes): %lu\n", total_bytes_transferred_DtoH);
     fprintf(stderr, "**********************************************\n");
-
-    __Tau_darshan_export_plugin();
+    
     return 0;
 }
 
