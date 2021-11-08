@@ -655,7 +655,7 @@ void* Tau_util_register_plugin(const char *name, char **args, int num_args, void
  * ************************************************************************************************************************/
 void* Tau_util_load_plugin(const char *name, const char *path, PluginManager* plugin_manager) {
 #ifndef TAU_WINDOWS
-  void* handle = dlopen(path, RTLD_NOW);
+  void* handle = dlopen(path, RTLD_NOW | RTLD_GLOBAL);
 #else
   void* handle = NULL;
 #endif /* TAU_WINDOWS */
