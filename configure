@@ -1131,6 +1131,8 @@ adios2dir=
 sqlite3=no
 mochi=no
 mochi_sdskv_dir=
+mochi_symbiomon_dir=
+mochi_reducer_dir=
 sqlite3dir=
 #caliper=no
 #caliperdir=
@@ -1182,7 +1184,6 @@ sddfdir=
 tau_uselm=yes
 iowrapper=no
 dmapp=no
-ugni=no
 zepto=no
 zeptodir=
 cuda=no
@@ -1375,11 +1376,6 @@ for arg in "$@"; do
 
 	-dmapp)
 	    dmapp=yes
-	    shift
-	    ;;
-
-	-ugni)
-	    ugni=yes
 	    shift
 	    ;;
 
@@ -2047,6 +2043,16 @@ for arg in "$@"; do
 
         if [ `pkg-config --exists sdskv-client; echo $?` == "1" ] ; then
             echo "Error: Cannot access mochi_sdskv install directory! Please verify that mochi-sdskv and dependent modules are loaded."
+            exit 1
+        fi
+
+        if [ `pkg-config --exists reducer-client; echo $?` == "1" ] ; then
+            echo "Error: Cannot access mochi_reducer install directory! Please verify that mochi-reducer and dependent modules are loaded."
+            exit 1
+        fi
+
+        if [ `pkg-config --exists symbiomon-client; echo $?` == "1" ] ; then
+            echo "Error: Cannot access mochi_symbiomon install directory! Please verify that mochi-symbiomon and dependent modules are loaded."
             exit 1
         else
             mochi=yes
@@ -4021,10 +4027,6 @@ case $machine in
 	    if [ $dmapp = no -a "x$CRAY_DMAPP_INCLUDE_OPTS" != "x" ]; then
 		fixmakeargs="$fixmakeargs DMAPP"
             fi
-	    if [ $ugni = no -a "x$CRAY_DMAPP_INCLUDE_OPTS" != "x" ]; then
-		fixmakeargs="$fixmakeargs UGNI"
-	        tauoptions="${tauoptions}-ugni"
-            fi
 
 	    # *CWL* - if bfd path is not explicitly specified, point
 	    #         to the correct preset bfd path.
@@ -4375,14 +4377,6 @@ if [ "x$PE_ENV" = "xCRAY" -o $dmapp = yes ]; then
     fi
 fi
 
-if [ "x$PE_ENV" = "xCRAY" -o $ugni = yes ]; then
-    if [ "x$CRAY_UGNI_INCLUDE_OPTS" = "x" ] ; then
-        echo "TAU: Please load the dmapp module on Cray to set CRAY_DMAPP_INCLUDE_OPTS environment variable and reconfigure TAU with the -dmapp configure option"
-    else
-        fixmakeargs="$fixmakeargs UGNI"
-	tauoptions="${tauoptions}-ugni"
-    fi
-fi
 
 if [ $stff = yes ] ; then
     fixmakeargs="$fixmakeargs RENCI_STFF stffdir=${stffdir} sddfdir=${sddfdir}"
@@ -11727,8 +11721,8 @@ fi
 
 if [ $mochi = yes ] ; then
         echo "Detected Mochi..."
-    mochiincludes=`pkg-config --cflags-only-I sdskv-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
-    mochilibs=`pkg-config --libs sdskv-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
+    mochiincludes=`pkg-config --cflags-only-I sdskv-client symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
+    mochilibs=`pkg-config --libs sdskv-client symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
     fixmakeargs="$fixmakeargs MOCHI "
     fixmakeargs="$fixmakeargs mochiincludes=${mochiincludes}#-DTAU_MOCHI"
     fixmakeargs="$fixmakeargs mochilibs=${mochilibs}"
