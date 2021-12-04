@@ -427,10 +427,10 @@ extern "C" int Tau_plugin_init_func(int argc, char **argv, int id) {
     char * red_freq_str = getenv("TAU_SYMBIOMON_REDUCTION_FREQUENCY");
     if(red_freq_str != NULL) {
 	    reduction_frequency = atoi(red_freq_str);
-	    //fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
+	    fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
     } else {
-	    reduction_frequency = 15;
-	    //fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
+	    reduction_frequency = 1;
+	    fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
     }
     return 0;
 }
