@@ -314,7 +314,7 @@ void Tau_plugin_mochi_write_variables() {
 	MPI_Barrier(MPI_COMM_WORLD);
 	/* Perform global aggregation if rank 0*/
 	if(!rank) {
-            fprintf(stderr, "Performing aggregation.\n");
+            fprintf(stderr, "SYMBIOMON: Performing metric aggregation.\n");
 	    symbiomon_metric_global_reduce_all(provider, size);
 	}
     }
@@ -394,7 +394,6 @@ int Tau_plugin_mochi_end_of_execution(Tau_plugin_event_end_of_execution_data_t* 
     }
     enabled = false;
 #endif
-    fprintf(stderr, "Do I get here??\n");
     margo_finalize(mid);
     return 0;
 }
@@ -430,7 +429,7 @@ extern "C" int Tau_plugin_init_func(int argc, char **argv, int id) {
 	    reduction_frequency = atoi(red_freq_str);
 	    //fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
     } else {
-	    reduction_frequency = 1;
+	    reduction_frequency = 15;
 	    //fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
     }
     return 0;
