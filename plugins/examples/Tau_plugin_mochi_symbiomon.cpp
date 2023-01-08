@@ -129,7 +129,7 @@ void Tau_dump_mochi_metadata() {
 void Tau_plugin_mochi_init_mochi(void) {
     int ret;
     /* initialize the local mochi provider */
-    mid = margo_init("ofi+gni://", MARGO_SERVER_MODE, 0, -1);
+    mid = margo_init("ofi+verbs://", MARGO_SERVER_MODE, 0, -1);
     if (mid == MARGO_INSTANCE_NULL)
     {
 	std::cerr << "Error: margo_init()" << std::endl;
