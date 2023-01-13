@@ -11721,8 +11721,8 @@ fi
 
 if [ $mochi = yes ] ; then
         echo "Detected Mochi..."
-    mochiincludes=`pkg-config --cflags-only-I sdskv-client symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
-    mochilibs=`pkg-config --libs sdskv-client symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
+    mochiincludes=`pkg-config --cflags-only-I sdskv-client sdskv-server symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
+    mochilibs=`pkg-config --libs sdskv-client sdskv-server symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
     fixmakeargs="$fixmakeargs MOCHI "
     fixmakeargs="$fixmakeargs mochiincludes=${mochiincludes}#-DTAU_MOCHI"
     fixmakeargs="$fixmakeargs mochilibs=${mochilibs}"
