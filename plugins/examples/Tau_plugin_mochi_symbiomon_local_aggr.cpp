@@ -45,6 +45,7 @@ static bool opened{false};
 static bool done{false};
 static margo_instance_id mid;
 static symbiomon_provider_t provider;
+static sdskv_provider_t sdskv_provider;
 static int reduction_frequency = 0;
 
 typedef enum {
@@ -153,31 +154,14 @@ void Tau_plugin_mochi_init_mochi(void) {
         return;
     }
 
-    /* register the COLLECTOR provider */
-    struct symbiomon_provider_args args = SYMBIOMON_PROVIDER_ARGS_INIT;
-    args.push_finalize_callback = 0;
-    //args.pool = pool;
-
-    ret = symbiomon_provider_register(mid, 42, &args, &provider);
-    if (ret != 0)
-    {
-	std::cerr << "Error: symbiomon_provider_register()" << std::endl;
-	margo_finalize(mid);
-	ret = -1;
-        return;
-    }
-    assert(ret == 0);
-
     int rank = 0;
     int size = 0;
     int numSomaRanks = 0;
     
-    #ifdef TAU_MPI
-        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-        MPI_Comm_size(MPI_COMM_WORLD, &size);
-	assert (getenv("TAU_NUM_SOMA_RANKS") != NULL);
-	numSomaRanks = atoi(getenv("TAU_NUM_SOMA_RANKS"));
-    #endif
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    assert (getenv("TAU_NUM_SOMA_RANKS") != NULL);
+    numSomaRanks = atoi(getenv("TAU_NUM_SOMA_RANKS"));
 
     /* initialize the SDSKV server */
     struct options opts;
@@ -189,7 +173,6 @@ void Tau_plugin_mochi_init_mochi(void) {
     opts.host_file = host_file_;
 
     int i;
-    sdskv_provider_t provider;
     struct sdskv_provider_init_info sdskv_args
         = SDSKV_PROVIDER_INIT_INFO_INIT;
         sdskv_args.json_config = NULL;
@@ -198,7 +181,7 @@ void Tau_plugin_mochi_init_mochi(void) {
     if(rank >= (size - numSomaRanks)) {
 	ret = sdskv_provider_register(mid, 1,
                 &sdskv_args,
-                &provider);
+                &sdskv_provider);
 
         if(ret != 0)
         {
@@ -233,7 +216,7 @@ void Tau_plugin_mochi_init_mochi(void) {
 
     ret = 0; 
     if(rank >= (size - numSomaRanks)) {
-        ret = sdskv_provider_attach_database(provider, &db_config, &db_id);
+        ret = sdskv_provider_attach_database(sdskv_provider, &db_config, &db_id);
     }
 
     if(ret != 0)
@@ -307,6 +290,23 @@ void Tau_plugin_mochi_init_mochi(void) {
          
         margo_addr_free(mid, self_addr);
     }
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    /* register the COLLECTOR provider */
+    struct symbiomon_provider_args args = SYMBIOMON_PROVIDER_ARGS_INIT;
+    args.push_finalize_callback = 0;
+    //args.pool = pool;
+
+    ret = symbiomon_provider_register(mid, 42, &args, &provider);
+    if (ret != 0)
+    {
+	std::cerr << "Error: symbiomon_provider_register()" << std::endl;
+	margo_finalize(mid);
+	ret = -1;
+        return;
+    }
+    assert(ret == 0);
 	    
     if (ret == 0) { initialized = true; }
 }
