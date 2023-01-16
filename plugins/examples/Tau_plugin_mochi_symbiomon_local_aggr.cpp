@@ -47,6 +47,9 @@ static margo_instance_id mid;
 static symbiomon_provider_t provider;
 static sdskv_provider_t sdskv_provider;
 static int reduction_frequency = 0;
+static int my_rank = 0;
+static int size = 0;
+static int numSomaRanks = 0;
 
 typedef enum {
     MODE_DATABASES = 0,
@@ -154,11 +157,7 @@ void Tau_plugin_mochi_init_mochi(void) {
         return;
     }
 
-    int rank = 0;
-    int size = 0;
-    int numSomaRanks = 0;
-    
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     assert (getenv("TAU_NUM_SOMA_RANKS") != NULL);
     numSomaRanks = atoi(getenv("TAU_NUM_SOMA_RANKS"));
@@ -178,7 +177,7 @@ void Tau_plugin_mochi_init_mochi(void) {
         sdskv_args.json_config = NULL;
         sdskv_args.rpc_pool = SDSKV_ABT_POOL_DEFAULT;
 
-    if(rank >= (size - numSomaRanks)) {
+    if(my_rank >= (size - numSomaRanks)) {
 	ret = sdskv_provider_register(mid, 1,
                 &sdskv_args,
                 &sdskv_provider);
@@ -201,7 +200,7 @@ void Tau_plugin_mochi_init_mochi(void) {
     }
 
     char rank_str[20];
-    sprintf(rank_str, "%d", rank);
+    sprintf(rank_str, "%d", my_rank);
     char * path = (char*)malloc((strlen(path_)+20)*sizeof(char));
     strcpy(path, path_);	
     strcat(path, rank_str);
@@ -215,7 +214,7 @@ void Tau_plugin_mochi_init_mochi(void) {
     };
 
     ret = 0; 
-    if(rank >= (size - numSomaRanks)) {
+    if(my_rank >= (size - numSomaRanks)) {
         ret = sdskv_provider_attach_database(sdskv_provider, &db_config, &db_id);
     }
 
@@ -235,7 +234,6 @@ void Tau_plugin_mochi_init_mochi(void) {
         char self_addr_str[128];
         hg_size_t self_addr_str_sz = 128;
         hg_return_t hret;
-        fprintf(stderr, "Writing addresses to host file...\n");
 
         /* figure out what address this server is listening on */
         hret = margo_addr_self(mid, &self_addr);
@@ -255,7 +253,7 @@ void Tau_plugin_mochi_init_mochi(void) {
         }
 
         // Write addresses to a file
-        if(rank == size - numSomaRanks) {
+        if(my_rank == size - numSomaRanks) {
             fp = fopen(opts.host_file, "w");
 	    if(!fp)
             {
@@ -263,14 +261,14 @@ void Tau_plugin_mochi_init_mochi(void) {
 	        margo_finalize(mid);
 	        return;
 	    }
-	    fprintf(fp, "%d\n", size);
+	    fprintf(fp, "%d\n", numSomaRanks);
 	    fclose(fp);
 	}
 
 	MPI_Barrier(MPI_COMM_WORLD);
 	int i = 0;
-	for(i = numSomaRanks; i < size; i++) {
-        	if(rank == i) {
+	for(i = size - numSomaRanks; i < size; i++) {
+        	if(my_rank == i) {
 		    fprintf(stderr, "Rank: %d is writing out its address..\n", i);
 	            fp = fopen(opts.host_file, "a");
 	            if(!fp)
@@ -294,21 +292,28 @@ void Tau_plugin_mochi_init_mochi(void) {
     MPI_Barrier(MPI_COMM_WORLD);
 
     /* register the COLLECTOR provider */
-    struct symbiomon_provider_args args = SYMBIOMON_PROVIDER_ARGS_INIT;
+     struct symbiomon_provider_args args = SYMBIOMON_PROVIDER_ARGS_INIT;
     args.push_finalize_callback = 0;
     //args.pool = pool;
 
-    ret = symbiomon_provider_register(mid, 42, &args, &provider);
-    if (ret != 0)
-    {
-	std::cerr << "Error: symbiomon_provider_register()" << std::endl;
-	margo_finalize(mid);
-	ret = -1;
-        return;
+    if(my_rank < size - numSomaRanks) {
+      ret = symbiomon_provider_register(mid, 42, &args, &provider);
+      if (ret != 0)
+        {
+	    std::cerr << "Error: symbiomon_provider_register()" << std::endl;
+	    margo_finalize(mid);
+	    ret = -1;
+            return;
+        }
+      assert(ret == 0);
     }
-    assert(ret == 0);
-	    
+
     if (ret == 0) { initialized = true; }
+
+    /* If I am an AGGREGATOR, I enter the infinite progress loop */
+    if(my_rank >= size - numSomaRanks) {
+       margo_wait_for_finalize(mid);
+    }
 }
 
 void Tau_plugin_mochi_open_file(void) {
@@ -345,15 +350,8 @@ void Tau_plugin_mochi_write_variables() {
 
     std::map<std::string, std::vector<double> >::iterator timer_map_it;
     
-    int rank = 0;
-    int size = 0;
-    #ifdef TAU_MPI
-        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-        MPI_Comm_size(MPI_COMM_WORLD, &size);
-    #endif
-
     stringstream rank_;
-    rank_ << rank;
+    rank_ << my_rank;
     symbiomon_taglist_t taglist, taglist2;
     symbiomon_taglist_create(&taglist, 1, (rank_.str()).c_str()); 
     symbiomon_taglist_create(&taglist2, 2, (rank_.str()).c_str(), "min"); 
@@ -468,12 +466,12 @@ void Tau_plugin_mochi_write_variables() {
     /*Aggregate all local metrics at a user-provided reduction frequency*/
     if((iteration_counter % reduction_frequency) == 0) {
         symbiomon_metric_reduce_all(provider);
-	MPI_Barrier(MPI_COMM_WORLD);
+	//MPI_Barrier(MPI_COMM_WORLD);
 	/* Perform global aggregation if rank 0*/
-	if(!rank) {
+	/* if(!rank) {
             fprintf(stderr, "SYMBIOMON: Performing metric aggregation.\n");
 	    symbiomon_metric_global_reduce_all(provider, size);
-	}
+	}*/
     }
     iteration_counter += 1;
 }
@@ -496,7 +494,7 @@ int Tau_plugin_mochi_dump(Tau_plugin_event_dump_data_t* data) {
        Tau_plugin_mochi_open_file();
     }
 
-    if (opened) {
+    if (opened and (my_rank < (size - numSomaRanks))) {
         Tau_plugin_mochi_write_variables();
     }
 
