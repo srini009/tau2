@@ -2041,22 +2041,13 @@ for arg in "$@"; do
             exit 1
         fi
 
-        if [ `pkg-config --exists sdskv-client; echo $?` == "1" ] ; then
-            echo "Error: Cannot access mochi_sdskv install directory! Please verify that mochi-sdskv and dependent modules are loaded."
-            exit 1
-        fi
-
-        if [ `pkg-config --exists reducer-client; echo $?` == "1" ] ; then
-            echo "Error: Cannot access mochi_reducer install directory! Please verify that mochi-reducer and dependent modules are loaded."
-            exit 1
-        fi
-
-        if [ `pkg-config --exists symbiomon-client; echo $?` == "1" ] ; then
-            echo "Error: Cannot access mochi_symbiomon install directory! Please verify that mochi-symbiomon and dependent modules are loaded."
+        if [ `pkg-config --exists soma-client; echo $?` == "1" ] ; then
+            echo "Error: Cannot access soma-client install directory! Please verify that soma-client and dependent modules are loaded."
             exit 1
         else
             mochi=yes
         fi
+
         shift
         ;;
 
@@ -11721,8 +11712,8 @@ fi
 
 if [ $mochi = yes ] ; then
         echo "Detected Mochi..."
-    mochiincludes=`pkg-config --cflags-only-I sdskv-client sdskv-server symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
-    mochilibs=`pkg-config --libs sdskv-client sdskv-server symbiomon-client symbiomon-server reducer-client | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
+    mochiincludes=`pkg-config --cflags-only-I soma-client soma-server soma-admin nlohmann_json | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
+    mochilibs=`pkg-config --libs soma-client soma-server soma-admin | sed -e 's/[[:space:]]*$//' | sed 's/ /#/g'`
     fixmakeargs="$fixmakeargs MOCHI "
     fixmakeargs="$fixmakeargs mochiincludes=${mochiincludes}#-DTAU_MOCHI"
     fixmakeargs="$fixmakeargs mochilibs=${mochilibs}"
