@@ -30,12 +30,11 @@
 #include<mpi.h>
 #endif
 
-#include <margo.h>
 #include <soma/Client.hpp>
-#include <conduit/conduit.hpp>
 
 /* So that we can keep track of how long this plugin takes */
 #include "Tau_scoped_timer.h"
+namespace tl = thallium;
 
 /* Globals -- Yikes, I know. */
 static bool enabled{false};
@@ -54,7 +53,7 @@ int reduction_frequency = 1;
 int num_server = 1;
 static tl::engine *engine;
 soma::Client *client;
-soma::CollectorHandle soma_client;
+soma::CollectorHandle collector;
 int server_instance_id = 0;
 
 #define RESERVE(container, size) container.reserve(size)
@@ -90,7 +89,8 @@ void parse_command_line() {
     server_instance_id = std::stoi(std::string(getenv("SOMA_SERVER_INSTANCE_ID")));
     int my_server_offset = num_server % my_rank;
     std::string l = read_nth_line(g_address_file, server_instance_id*num_server + my_server_offset);
-    pos = l.find(delimiter);
+    std::string delimiter = " ";
+    int pos = l.find(delimiter);
     std::string server_rank_str = l.substr(0, pos);
     std::stringstream s_(server_rank_str);
     int server_rank;
@@ -193,7 +193,7 @@ void Tau_plugin_mochi_init_mochi(void) {
 
     // Create a handle from provider 0
     collector = (*client).makeCollectorHandle(g_address, g_provider_id,
-                    soma::UUID::from_string(g_collector.c_str()));
+                    soma::UUID::from_string(g_node.c_str()));
 
     initialized = true;
 }
@@ -217,10 +217,6 @@ void shorten_timer_name(std::string& name) {
 /* Iterates over the FunctionInfo DB and EventDB to compile a list of 
  * per-thread metrics and counters. */
 void Tau_plugin_mochi_write_variables() {
-    // Send a dummy Conduit node for "pipe" cleaning
-    Node n;
-    n["test"] = "test_value" + " for rank: " + rank;
-    collector.soma_publish(n);
 }
 
 int Tau_plugin_mochi_dump(Tau_plugin_event_dump_data_t* data) {
@@ -268,7 +264,6 @@ int Tau_plugin_mochi_pre_end_of_execution(Tau_plugin_event_pre_end_of_execution_
     }
     enabled = false;
 #endif
-    margo_finalize(mid);
     return 0;
 }
 
@@ -295,8 +290,9 @@ int Tau_plugin_mochi_end_of_execution(Tau_plugin_event_end_of_execution_data_t* 
         opened = false;
     }
     enabled = false;
+    delete client;
+    delete engine;
 #endif
-    margo_finalize(mid);
     return 0;
 }
 
