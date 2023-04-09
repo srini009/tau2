@@ -41,19 +41,22 @@ static bool enabled{false};
 static bool initialized{false};
 static bool opened{false};
 static bool done{false};
+
 static int my_rank = 0;
 static int size = 0;
+
 static std::string g_address_file;
 static std::string g_address;
-static std::string g_protocol = "na+sm";
+static std::string g_protocol = "ofi+verbs";
 static std::string g_node;
 static unsigned    g_provider_id;
 static std::string g_log_level = "info";
-int reduction_frequency = 1;
+
+int monitoring_frequency = 1;
 int num_server = 1;
-static tl::engine *engine;
-soma::Client *client;
-soma::CollectorHandle collector;
+static thallium::engine *engine;
+static soma::Client *client;
+static soma::CollectorHandle soma_collector;
 int server_instance_id = 0;
 
 #define RESERVE(container, size) container.reserve(size)
@@ -85,12 +88,15 @@ void parse_command_line() {
 
     char *addr_file_name = getenv("SOMA_SERVER_ADDR_FILE");
     char *node_file_name = getenv("SOMA_NODE_ADDR_FILE");
+    int num_server = 1;
     num_server = std::stoi(std::string(getenv("SOMA_NUM_SERVERS_PER_INSTANCE")));
-    server_instance_id = std::stoi(std::string(getenv("SOMA_SERVER_INSTANCE_ID")));
-    int my_server_offset = num_server % my_rank;
-    std::string l = read_nth_line(g_address_file, server_instance_id*num_server + my_server_offset);
+    server_instance_id = std::stoi(std::string(getenv("SOMA_TAU_SERVER_INSTANCE_ID")));
+    int my_server_offset = my_rank % num_server;
+    g_address_file = addr_file_name;
+    std::string l = read_nth_line(g_address_file, server_instance_id*num_server + my_server_offset + 1);
     std::string delimiter = " ";
-    int pos = l.find(delimiter);
+    size_t pos = 0;
+    pos = l.find(delimiter);
     std::string server_rank_str = l.substr(0, pos);
     std::stringstream s_(server_rank_str);
     int server_rank;
@@ -99,8 +105,8 @@ void parse_command_line() {
     g_address = l;
     g_provider_id = 0;
     g_node = read_nth_line(std::string(node_file_name), server_instance_id*num_server + my_server_offset);
-    g_protocol = g_address.substr(0, g_address.find(":"));
-
+    //g_protocol = g_address.substr(0, g_address.find(":"));
+    g_protocol = "ofi+verbs";
 }
 
 /* These are useful if you want to tell Mochi what the name of the program
@@ -186,13 +192,13 @@ void Tau_plugin_mochi_init_mochi(void) {
     parse_command_line();
 
     // Initialize the thallium server
-    engine = new tl::engine(g_protocol, THALLIUM_CLIENT_MODE);
+    engine = new thallium::engine(g_protocol, THALLIUM_CLIENT_MODE);
 
     // Initialize a Client
     client = new soma::Client(*engine);
 
     // Create a handle from provider 0
-    collector = (*client).makeCollectorHandle(g_address, g_provider_id,
+    soma_collector = (*client).makeCollectorHandle(g_address, g_provider_id,
                     soma::UUID::from_string(g_node.c_str()));
 
     initialized = true;
@@ -217,6 +223,100 @@ void shorten_timer_name(std::string& name) {
 /* Iterates over the FunctionInfo DB and EventDB to compile a list of 
  * per-thread metrics and counters. */
 void Tau_plugin_mochi_write_variables() {
+
+    RtsLayer::LockDB();
+    /* Copy the function info database so we can release the lock */
+    std::vector<FunctionInfo*> tmpTimers(TheFunctionDB());
+    RtsLayer::UnLockDB();
+
+    int numThreadsLocal = RtsLayer::getTotalThreads();
+    /* "counters" here are metrics.  Sorry for the confusion. */
+    const char **counterNames;
+    std::vector<int> numCounters = {0};
+    TauMetrics_getCounterList(&counterNames, &(numCounters[0]));
+
+    std::map<std::string, std::vector<double> >::iterator timer_map_it;
+    
+    soma::NamespaceHandle *ns_handle = soma_collector.soma_create_namespace("TAU");
+    soma_collector.soma_set_publish_frequency(*ns_handle, monitoring_frequency);
+
+    //foreach: TIMER
+    std::vector<FunctionInfo*>::const_iterator it;
+    for (it = tmpTimers.begin(); it != tmpTimers.end(); it++) {
+        FunctionInfo *fi = *it;
+
+        stringstream ss;
+        std::string shortName(fi->GetName());
+        shorten_timer_name(shortName);
+	std::string timer_name_Calls = shortName + "_Calls";
+	std::string timer_name_Inclusive = shortName + "_Inclusive";
+	std::string timer_name_Exclusive = shortName + "_Exclusive";
+
+        // assign real data
+        double total_tid_calls = 0;
+        for (int tid = 0; tid < numThreadsLocal; tid++) {
+            /* build a name with ss, tid */
+            /* write the fi->GetCalls(tid) value */
+            total_tid_calls += (double)fi->GetCalls(tid);
+        }
+       
+	soma_collector.soma_update_namespace(*ns_handle, timer_name_Calls, total_tid_calls, soma::OVERWRITE);
+
+        for (int m = 0 ; m < numCounters.size() ; m++) {
+            // assign real data
+            double inc_time = 0, exc_time = 0;
+            for (int tid = 0; tid < numThreadsLocal; tid++) {
+                if(fi->GetCalls(tid) == 0) {
+		  inc_time += 0.0;
+		  exc_time += 0.0;
+                } else {
+                  inc_time += (fi->getDumpInclusiveValues(tid)[m]);
+                  exc_time += (fi->getDumpExclusiveValues(tid)[m]);
+                }
+     
+            }
+	    soma_collector.soma_update_namespace(*ns_handle, timer_name_Inclusive, inc_time, soma::OVERWRITE);
+	    soma_collector.soma_update_namespace(*ns_handle, timer_name_Inclusive, exc_time, soma::OVERWRITE);
+        }
+    }
+    /* Lock the counter map */
+    RtsLayer::LockDB();
+    tau::AtomicEventDB::const_iterator it2;
+    std::map<std::string, std::vector<double> >::iterator counter_map_it;
+
+    // do the same with counters.
+    for (it2 = tau::TheEventDB().begin(); it2 != tau::TheEventDB().end(); it2++) {
+        tau::TauUserEvent *ue = (*it2);
+        if (ue == NULL) continue;
+        std::string counter_name(ue->GetName().c_str());
+	std::string counter_name_NumEvents = counter_name + "_NumEvents";
+	std::string counter_name_Mean = counter_name + "_Mean";
+	std::string counter_name_Min = counter_name + "_Min";
+	std::string counter_name_Max = counter_name + "_Max";
+	std::string counter_name_SumSquares = counter_name + "_SumSquares";
+
+        // assign real data
+        double numevents_val = 0, mean_val = 0, min_val = 0, max_val = 0, sumsqr_val = 0;
+        for (int tid = 0; tid < numThreadsLocal; tid++) {
+            numevents_val += ((double)ue->GetNumEvents(tid));
+            mean_val += ((double)ue->GetMean(tid));
+            min_val += ((double)ue->GetMin(tid));
+            max_val += ((double)ue->GetMax(tid));
+            sumsqr_val += ((double)ue->GetSumSqr(tid));
+        }
+
+	soma_collector.soma_update_namespace(*ns_handle, counter_name_NumEvents, numevents_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(*ns_handle, counter_name_Mean, mean_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(*ns_handle, counter_name_Min, min_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(*ns_handle, counter_name_Max, max_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(*ns_handle, counter_name_SumSquares, sumsqr_val, soma::OVERWRITE);
+    }
+
+    /* unlock the counter map */
+    RtsLayer::UnLockDB();
+
+    /* commit the SOMA namespace */
+    soma_collector.soma_commit_namespace(*ns_handle);
 }
 
 int Tau_plugin_mochi_dump(Tau_plugin_event_dump_data_t* data) {
@@ -263,6 +363,12 @@ int Tau_plugin_mochi_pre_end_of_execution(Tau_plugin_event_pre_end_of_execution_
         opened = false;
     }
     enabled = false;
+
+    if (my_rank == 0) {
+        std::string outfile = "tau_data_soma.txt";	  
+        bool write_done;
+        soma_collector.soma_write(outfile, &write_done);
+    }
 #endif
     return 0;
 }
@@ -290,6 +396,7 @@ int Tau_plugin_mochi_end_of_execution(Tau_plugin_event_end_of_execution_data_t* 
         opened = false;
     }
     enabled = false;
+
     delete client;
     delete engine;
 #endif
@@ -324,11 +431,11 @@ extern "C" int Tau_plugin_init_func(int argc, char **argv, int id) {
     enabled = true;
     char * red_freq_str = getenv("TAU_SOMA_MONITORING_FREQUENCY");
     if(red_freq_str != NULL) {
-	    reduction_frequency = atoi(red_freq_str);
-	    fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
+	    monitoring_frequency = atoi(red_freq_str);
+	    fprintf(stderr, "TAU: Monitoring/publish frequency is: %d\n", monitoring_frequency);
     } else {
-	    reduction_frequency = 1;
-	    fprintf(stderr, "Reduction frequency is: %d\n", reduction_frequency);
+	    monitoring_frequency = 1;
+	    fprintf(stderr, "TAU: Monitoring/publish frequency is: %d\n", monitoring_frequency);
     }
     return 0;
 }
