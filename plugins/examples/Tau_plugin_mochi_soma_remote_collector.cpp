@@ -57,6 +57,7 @@ int num_server = 1;
 static thallium::engine *engine;
 static soma::Client *client;
 static soma::CollectorHandle soma_collector;
+static soma::NamespaceHandle *ns_handle;
 int server_instance_id = 0;
 
 #define RESERVE(container, size) container.reserve(size)
@@ -201,6 +202,9 @@ void Tau_plugin_mochi_init_mochi(void) {
     soma_collector = (*client).makeCollectorHandle(g_address, g_provider_id,
                     soma::UUID::from_string(g_node.c_str()));
 
+    ns_handle = soma_collector.soma_create_namespace("TAU");
+    soma_collector.soma_set_publish_frequency(ns_handle, monitoring_frequency);
+
     initialized = true;
 }
 
@@ -224,6 +228,8 @@ void shorten_timer_name(std::string& name) {
  * per-thread metrics and counters. */
 void Tau_plugin_mochi_write_variables() {
 
+    std::string uid = to_string(my_rank); 
+
     RtsLayer::LockDB();
     /* Copy the function info database so we can release the lock */
     std::vector<FunctionInfo*> tmpTimers(TheFunctionDB());
@@ -237,9 +243,6 @@ void Tau_plugin_mochi_write_variables() {
 
     std::map<std::string, std::vector<double> >::iterator timer_map_it;
     
-    soma::NamespaceHandle *ns_handle = soma_collector.soma_create_namespace("TAU");
-    soma_collector.soma_set_publish_frequency(*ns_handle, monitoring_frequency);
-
     //foreach: TIMER
     std::vector<FunctionInfo*>::const_iterator it;
     for (it = tmpTimers.begin(); it != tmpTimers.end(); it++) {
@@ -260,7 +263,7 @@ void Tau_plugin_mochi_write_variables() {
             total_tid_calls += (double)fi->GetCalls(tid);
         }
        
-	soma_collector.soma_update_namespace(*ns_handle, timer_name_Calls, total_tid_calls, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(ns_handle, uid, timer_name_Calls, total_tid_calls, soma::OVERWRITE);
 
         for (int m = 0 ; m < numCounters.size() ; m++) {
             // assign real data
@@ -275,8 +278,8 @@ void Tau_plugin_mochi_write_variables() {
                 }
      
             }
-	    soma_collector.soma_update_namespace(*ns_handle, timer_name_Inclusive, inc_time, soma::OVERWRITE);
-	    soma_collector.soma_update_namespace(*ns_handle, timer_name_Inclusive, exc_time, soma::OVERWRITE);
+	    soma_collector.soma_update_namespace(ns_handle, uid, timer_name_Inclusive, inc_time, soma::OVERWRITE);
+	    soma_collector.soma_update_namespace(ns_handle, uid, timer_name_Inclusive, exc_time, soma::OVERWRITE);
         }
     }
     /* Lock the counter map */
@@ -305,18 +308,18 @@ void Tau_plugin_mochi_write_variables() {
             sumsqr_val += ((double)ue->GetSumSqr(tid));
         }
 
-	soma_collector.soma_update_namespace(*ns_handle, counter_name_NumEvents, numevents_val, soma::OVERWRITE);
-	soma_collector.soma_update_namespace(*ns_handle, counter_name_Mean, mean_val, soma::OVERWRITE);
-	soma_collector.soma_update_namespace(*ns_handle, counter_name_Min, min_val, soma::OVERWRITE);
-	soma_collector.soma_update_namespace(*ns_handle, counter_name_Max, max_val, soma::OVERWRITE);
-	soma_collector.soma_update_namespace(*ns_handle, counter_name_SumSquares, sumsqr_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(ns_handle, uid, counter_name_NumEvents, numevents_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(ns_handle, uid, counter_name_Mean, mean_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(ns_handle, uid, counter_name_Min, min_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(ns_handle, uid, counter_name_Max, max_val, soma::OVERWRITE);
+	soma_collector.soma_update_namespace(ns_handle, uid, counter_name_SumSquares, sumsqr_val, soma::OVERWRITE);
     }
 
     /* unlock the counter map */
     RtsLayer::UnLockDB();
 
     /* commit the SOMA namespace */
-    soma_collector.soma_commit_namespace(*ns_handle);
+    soma_collector.soma_commit_namespace(ns_handle);
 }
 
 int Tau_plugin_mochi_dump(Tau_plugin_event_dump_data_t* data) {
